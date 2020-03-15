@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta charset="UTF-8"/>
+<title>View All Shows</title>
+</h:head>
+<body>
+	<h:form>
+		<p:dataTable var="show" value="#{showView.shows}" rows="25"
+		paginator="true" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+		currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+        rowsPerPageTemplate="25,50,100,150">
+        
+      		<p:column><p:tabView>
+      			<p:tab title="General Information">
+      				<h:panelGrid columns="2" cellpadding="5">
+      					<h:graphicImage name="placeholder.jpg" />
+      					<h:panelGrid>
+	      					<h:outputText value="Show Type:"/><h:outputText value="#{show.type}" />
+	      					<h:outputText value="Show Title:"/><h:outputText value="#{show.title}"/>
+	      					<h:outputText value="Director:"/><h:outputText value="#{show.director}"/>
+	      					<h:outputText value="Rating:"/><h:outputText value="#{show.rating}"/>
+	      					<h:outputText value="Duration:"/><h:outputText value="#{show.duration}"/>
+	      					<h:outputText value="Release Year:"/><h:outputText value="#{show.releaseYear}"/>	
+	      				</h:panelGrid>
+					</h:panelGrid>
+				</p:tab>
+				<p:tab title="Description">
+      				<h:panelGrid columns="2" cellpadding="10">
+      					<h:outputText value="Show Desc:"/><h:outputText value="#{show.desc}" />
+      					<h:outputText value="Cast:"/><h:outputText value="#{show.cast}"/>
+      				</h:panelGrid>
+					
+				</p:tab>
+      				
+      		</p:tabView></p:column>
+         	<!--  <p:column headerText="Id"><h:outputText value="#{show.show_id}" /></p:column>        
+			<p:column headerText="Type"><h:outputText value="#{show.type}" /></p:column>        
+         	<p:column headerText="Title"><h:outputText value="#{show.title}" /></p:column>        
+         	<p:column headerText="Director"><h:outputText value="#{show.director}" /></p:column>        
+         	<p:column headerText="Cast"><h:outputText value="#{show.cast}" /></p:column>        
+         	<p:column headerText="Country"><h:outputText value="#{show.country}" /></p:column>        
+         	<p:column headerText="Release Year"><h:outputText value="#{show.releaseYear}" /></p:column>        
+         	<p:column headerText="Rating"><h:outputText value="#{show.rating}" /></p:column>        
+         	<p:column headerText="Duration"><h:outputText value="#{show.duration}" /></p:column>        
+         	<p:column headerText="Listed In"><h:outputText value="#{show.listedIn}" /></p:column>        
+         	<p:column headerText="Description"><h:outputText value="#{show.desc}" /></p:column>     
+         	<p:column headerText=""><h:commandLink value="Edit" action="#{adminBean.adminEdit}"/></p:column>-->   
+		</p:dataTable>
+	</h:form>	
+
+</body>
+</html>
