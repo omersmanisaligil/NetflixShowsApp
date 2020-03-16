@@ -30,13 +30,14 @@ public class DataAccess {
 	
 	public static void main(String[] args) {
 		//test
-		//getConnection();
+		getConnection();
 		System.out.println(AddShow("asassa","asdfasda","asdsa","a,a,a,a","sdsada",1,"as","as","asd","asd"));
 	}
 	
 	public static boolean AddShow(String type, String title, String director,String cast,String country,int releaseYear,String rating,String duration,String listedIn,String desc) {
 		//Show s1=new Show(type,title,director,cast,country,releaseYear,rating,duration,listedIn,desc);
 		try {
+			Class.forName(DbSettings.driver);
 			Connection conn=DriverManager.getConnection(DbSettings.url,DbSettings.username,DbSettings.password);
 			String add="INSERT INTO tblShows(type,title,director,cast,country,release_year,rating,duration,listed_in,description) VALUES(?,?,?,?,?,?,?,?,?,?)";
 			
@@ -58,7 +59,7 @@ public class DataAccess {
 			conn.close();
 			
 			return true;
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
@@ -70,6 +71,7 @@ public class DataAccess {
 		List<Show> allShows=new ArrayList<Show>();
 		
 		try {
+			Class.forName(DbSettings.driver);
 			Connection conn=DriverManager.getConnection(DbSettings.url,DbSettings.username,DbSettings.password);
 			String sql="SELECT * FROM NFBase.tblShows";
 ;
@@ -94,6 +96,7 @@ public class DataAccess {
 			int releaseYear, String rating, String duration, String listedIn, String desc) {
 		List<Show> resultList=new ArrayList<Show>();
 		try {
+			Class.forName(DbSettings.driver);
 			Connection conn=DriverManager.getConnection(DbSettings.url,DbSettings.username,DbSettings.password);
 			//director, cast, country falan için INSTR fonksiyonunu kullan.
 			/*String search="SELECT * FROM tblShows WHERE type=? AND title=? AND director=? AND cast=? AND country=? AND release_year=? AND rating=? AND duration=?"
