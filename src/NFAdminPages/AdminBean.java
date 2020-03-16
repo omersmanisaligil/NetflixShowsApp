@@ -16,5 +16,8 @@ public class AdminBean {
 	public String addShow() {
 		return "adminAdd";
 	}
+	public String panel() {
+		return "adminpanel";
+	}
 }
 
