@@ -11,7 +11,7 @@ import NFAdminPages.DataAccess;
 @RequestScoped
 public class ShowData extends Show {
 	private String message;
-	public String addShow() {
+	public String addShow() throws ClassNotFoundException {
 		if(DataAccess.AddShow(getType(), getTitle(), getDirector(), getCast(), getCountry(), getReleaseYear(), getRating(), getDuration(), getListedIn(), getDesc())) {
 			this.message="show added";
 		}

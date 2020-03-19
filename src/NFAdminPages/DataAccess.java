@@ -20,7 +20,7 @@ public class DataAccess {
 		try(Connection connection=DriverManager.getConnection(DbSettings.url,DbSettings.username,DbSettings.password)) {
 			System.out.println("success");
 			return connection;
-		}catch(SQLException e) {
+		}catch(Exception e) {
 			System.err.println("fail");
 		    throw new IllegalStateException("Cannot connect the database!", e);
 		}
@@ -28,13 +28,13 @@ public class DataAccess {
 	
 	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException {
 		//test
-		getConnection();
+	    //getConnection();
 		System.out.println(AddShow("asassa","asdfasda","asdsa","a,a,a,a","sdsada",1,"as","as","asd","asd"));
 	}
 	
-	public static boolean AddShow(String type, String title, String director,String cast,String country,int releaseYear,String rating,String duration,String listedIn,String desc) {
+	public static boolean AddShow(String type, String title, String director,String cast,String country,int releaseYear,String rating,String duration,String listedIn,String desc) throws ClassNotFoundException {
 		//Show s1=new Show(type,title,director,cast,country,releaseYear,rating,duration,listedIn,desc);
 		try {
 			Class.forName(DbSettings.driver);

@@ -2,57 +2,104 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:mcv="http://myfaces.apache.org/commons/validators">
 <h:head>
-<meta charset="UTF-8"/>
-<title>Add New Show</title>
+	<meta charset="UTF-8" />
+	<title>Add New Show</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
 </h:head>
 <body>
 	<h:form>
-	<h:panelGrid columns="2">
-	
-	<h:outputText value="Type: "/> 
-	<h:selectOneMenu value="#{showData.type}">
-		<f:selectItem itemLabel="--SELECT TYPE--" itemValue="type"/>
-		<f:selectItems value="#{listAccess.types}" />
-	</h:selectOneMenu>
-	
-	<h:outputText value="Title: "/>
-	<h:inputText value="#{showData.title}"/>
-	
-	<h:outputText value="Rating: "/>
-	<h:selectOneMenu value="#{showData.rating}">
-		<f:selectItem itemLabel="--SELECT RATING--" itemValue="rating"/>				
-		<f:selectItems value="#{listAccess.ratings}"/>
-	</h:selectOneMenu>
-	
-	
-	<h:outputText value="Director: "/>
-	<h:inputText id="director" value="#{showData.director}"/>
-	
-	<h:outputText value="Cast: "/>
-	<h:inputText value="#{showData.cast}"/>
+		<h:panelGrid columns="3">
 
-	<h:outputText value="Country: "/>
-	<h:inputText value="#{showData.country}"/>	
-	
-	<h:outputText value="Release Year: "/>
-	<h:inputText value="#{showData.releaseYear}"/>	
-	
-	<h:outputText value="Duration: "/>
-	<h:inputText value="#{showData.duration}"/>	
-	
-	<h:outputText value="Listed In:	"/>
-	<h:inputText value="#{showData.listedIn}"/>	
+			<h:outputText value="Type: " />
+			<p:selectOneMenu value="#{showData.type}" id="type" required="true"
+				requiredMessage="Please select the type" label="Type">
+				<f:selectItem itemLabel="--SELECT TYPE--" itemValue="type"
+					noSelectionOption="true" />
+				<f:selectItems value="#{listAccess.types}" />
+				<f:validateRequired></f:validateRequired>
+			</p:selectOneMenu>
+			<p:message for="type"></p:message>
 
-	<h:outputText value="Description: "/>
-	<h:inputTextarea row="30" col="20" value="#{showData.desc}"/>
-		
-	<br/><br/>
-	<h:outputLabel value="#{showData.message}"/>
-	<h:commandButton value="Add" action="#{showData.addShow}"/>	<br/>
-	<h:commandButton value="Back to panel" action="#{adminBean.panel}"/>
-	</h:panelGrid>	
-</h:form>
+			<h:outputText value="Title: " />
+			<p:inputText value="#{showData.title}" id="title" required="true"
+				requiredMessage="Please enter the title">
+			</p:inputText>
+			<p:message for="title"></p:message>
+
+			<h:outputText value="Rating: " />
+			<p:selectOneMenu value="#{showData.rating}" id="rating"
+				required="true" requiredMessage="Please select the rating"
+				label="Rating">
+				<f:selectItem itemLabel="--SELECT RATING--" itemValue="rating"
+					noSelectionOption="true" />
+				<f:selectItems value="#{listAccess.ratings}" />
+				<f:validateRequired></f:validateRequired>
+			</p:selectOneMenu>
+			<p:message for="rating"></p:message>
+
+
+			<h:outputText value="Director: " />
+			<p:inputText id="director" value="#{showData.director}"
+				required="true" requiredMessage="Please enter the director"
+				validatorMessage="Director name must be more than 3 letters">
+				<f:validateLength minimum="3"></f:validateLength>
+				<f:validateRegex pattern="[ÇçğĞüÜöÖışŞİA-Za-z,. ;']+"></f:validateRegex>
+			</p:inputText>
+			<p:message for="director"></p:message>
+
+			<h:outputText value="Cast: " />
+			<p:inputText value="#{showData.cast}" required="true" id="cast"
+				requiredMessage="Please enter the cast">
+			</p:inputText>
+			<p:message for="cast"></p:message>
+
+			<h:outputText value="Country: " />
+			<p:inputText value="#{showData.country}" required="true" id="country"
+				requiredMessage="Please enter the country"
+				validatorMessage="Please enter a valid country name">
+				<f:validateRegex pattern="[ÇçğĞüÜöÖışŞİA-Za-z,.;' ]+"></f:validateRegex>
+			</p:inputText>
+			<p:message for="country"></p:message>
+
+			<h:outputText value="Release Year: " />
+			<p:inputText value="#{showData.releaseYear}" id="year"
+				required="true" requiredMessage="Please enter the release year"
+				validatorMessage="Release year must be less than 2023">
+				<f:validateLongRange maximum="2021"></f:validateLongRange>
+				<f:validateLength maximum="4" minimum="4"></f:validateLength>
+			</p:inputText>
+			<p:message for="year"></p:message>
+
+			<h:outputText value="Duration: " />
+			<p:inputText value="#{showData.duration}" id="duration"
+				required="true" requiredMessage="Please enter the duration">
+			</p:inputText>
+			<p:message for="duration"></p:message>
+
+			<h:outputText value="Listed In:	" />
+			<p:inputText value="#{showData.listedIn}" id="listedin"
+				required="true" requiredMessage="Please enter the value">
+			</p:inputText>
+			<p:message for="listedin"></p:message>
+
+			<h:outputText value="Description: " />
+			<p:inputTextarea row="30" col="20" value="#{showData.desc}" id="desc"
+				required="true" requiredMessage="Please enter the description"
+				validatorMessage="Description must be greater than 5 characters">
+				<f:validateLength minimum="5"></f:validateLength>
+			</p:inputTextarea>
+			<p:message for="desc"></p:message>
+
+
+			<h:outputLabel value="#{showData.message}" />
+			<h:commandButton value="Add" action="#{showData.addShow}" />
+			<h:commandButton value="Back to panel" action="#{adminBean.panel}" immediate="true" />		
+
+		</h:panelGrid>
+	</h:form>
 </body>
 </html>
