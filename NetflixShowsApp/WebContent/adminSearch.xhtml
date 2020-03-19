@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta charset="UTF-8"/>
+<title>Search Shows</title>
+</h:head>
+<body>
+	<h:form>
+	<p:sidebar widgetVar="searchBar" position="left" baseZIndex="10000">
+    <h1 style="font-weight:normal">Search Bar</h1>
+	    <h:panelGrid columns="2">
+		
+		<h:outputText value="Type: "/> 
+		<h:selectOneMenu value="#{showView.type}">
+			<f:selectItem itemLabel="--SELECT TYPE--" itemValue="type"/>
+			<f:selectItems value="#{listAccess.types}" />
+		</h:selectOneMenu>
+		
+		<h:outputText value="Title: "/>
+		<h:inputText value="#{showView.title}"/>
+		
+		<h:outputText value="Rating: "/>
+		<h:selectOneMenu value="#{showView.rating}">
+			<f:selectItem itemLabel="--SELECT RATING--" itemValue="rating"/>				
+			<f:selectItems value="#{listAccess.ratings}"/>
+		</h:selectOneMenu>
+		
+		
+		<h:outputText value="Director: "/>
+		<h:inputText value="#{showView.director}"/>
+		
+		<h:outputText value="Cast: "/>
+		<h:inputText value="#{showView.cast}"/>
+	
+		 <h:outputText value="Country: "/>
+		<h:inputText value="#{showView.country}"/>	
+		
+		<h:outputText value="Release Year: "/>
+		<h:inputText value="#{showView.releaseYear}"/>	
+		
+		<h:outputText value="Duration: "/>
+		<h:inputText value="#{showView.duration}"/>	
+		
+		<h:outputText value="Listed In:	"/>
+		<h:inputText value="#{showView.listedIn}"/>	
+	
+		<h:outputText value="Description Includes: "/>
+		<h:inputTextarea row="30" col="20" value="#{showView.desc}"/>
+    	</h:panelGrid>	
+    <p:commandButton value="Cancel" oncomplete="PF('searchBar').hide()"/>
+    <h:commandButton value="Search" action="#{showView.searchAction}"></h:commandButton>	
+    
+	</p:sidebar>
+	<p:commandButton icon="pi pi-arrow-down" oncomplete="PF('searchBar').show()" />
+	
+	<p:dataTable var="show" value="#{showView.searchResults}" rows="100"
+		paginator="true" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+		currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+        rowsPerPageTemplate="25,50,100,150">
+        
+      		<p:column><p:tabView>
+      			<p:tab title="General Information">
+      				<h:panelGrid columns="2" cellpadding="10">
+      				<!--<h:graphicImage name="placeholder.jpg"/>-->
+      					<h:outputText value="#{show.type}" />
+      					<h:outputText value="#{show.title}"/>
+      					<h:outputText value="#{show.director}"/>
+      					<h:outputText value="#{show.rating}"/>
+      					<h:outputText value="#{show.duration}"/>
+      					<h:outputText value="#{show.releaseYear}"/>	
+					</h:panelGrid>
+				</p:tab>
+				<p:tab title="#{show.title}">
+      				<h:panelGrid columns="2" cellpadding="10">
+      					<h:outputText value="#{show.desc}" />
+      					<h:outputText value="#{show.cast}"/>
+      				</h:panelGrid>
+					
+				</p:tab>
+      				
+      		</p:tabView></p:column>
+	</p:dataTable>
+	
+	<h:commandButton value="Back to panel" action="#{adminBean.panel}"/>
+		
+</h:form>
+</body>
+</html>
