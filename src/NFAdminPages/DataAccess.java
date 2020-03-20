@@ -9,6 +9,7 @@ import Models.Show;
 
 public class DataAccess {
 	
+	//bu metoddan connection döndürdüğümüz zaman "closed connection" hatası aldığımız için artık kullanmıyoruz
 	private static Connection getConnection() {
 		System.out.println("Loading driver...");
 		
@@ -59,7 +60,7 @@ public class DataAccess {
 			conn.close();
 			
 			return true;
-		} catch (Exception e) {
+		} catch (SQLException|ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
@@ -85,7 +86,7 @@ public class DataAccess {
 						rs.getString("listed_in"),rs.getString("description")));
 			}
 			conn.close();
-		}catch(Exception e) {
+		}catch(SQLException|ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		return allShows;
@@ -125,12 +126,66 @@ public class DataAccess {
 			}
 			conn.close();
 			
-		}catch(Exception e) {
+		}catch(SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		return resultList;
 	}
 	
+	public static Show findShow(String title) {
+		Show result=null;
+		try {
+			Class.forName(DbSettings.driver);
+			Connection conn=DriverManager.getConnection(DbSettings.url,DbSettings.username,DbSettings.password);
+			
+			String find="SELECT * FROM tblShows WHERE title=?";
+			PreparedStatement statement=conn.prepareStatement(find);
+			
+			statement.setString(1, title);
+			
+			ResultSet rs=statement.executeQuery();
+			rs.next();
+			result=new Show(rs.getString("type"), rs.getString("title"),rs.getString("director"),rs.getString("cast"),rs.getString("country"),rs.getInt("release_year"),
+					rs.getString("rating"),rs.getString("duration"),rs.getString("listed_in"),rs.getString("description"));
+			
+			conn.close();
+		}catch(SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	public static boolean updateShow(String type, String title, String director, String cast, String country,
+			int releaseYear, String rating, String duration, String listedIn, String desc) {
+		try {
+			Class.forName(DbSettings.driver);
+			Connection conn=DriverManager.getConnection(DbSettings.url,DbSettings.username,DbSettings.password);
+			
+			//show_id çek işlemi ona göre yap
+			String update="UPDATE tblShows SET type=?,director=?,cast=?,country=?,release_year=?,rating=?,duration=?,listed_in=?,description=? WHERE title=? ";
+			PreparedStatement statement=conn.prepareStatement(update);
+			
+			statement.setString(1, type);
+			statement.setString(2, director);
+			statement.setString(3, cast);
+			statement.setString(4, country);
+			statement.setInt(5, releaseYear);
+			statement.setString(6, rating);
+			statement.setString(7, duration);
+			statement.setString(8, listedIn);
+			statement.setString(9, desc);
+			statement.setString(10, title);
+			
+			statement.executeUpdate();
+			conn.close();
+			return true;
+			
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
 
 }
 

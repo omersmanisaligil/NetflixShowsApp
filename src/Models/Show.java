@@ -79,6 +79,10 @@ public class Show {
 		return String.format("%d	%s	%s	%s	%s	%s	%d	%s	%s	%s	%s \n", 
 				show_id,type,title,director,cast,country,releaseYear,rating,duration,listedIn,desc);
 	}
+	
+	public void setShow_id(int show_id) {
+		this.show_id = show_id;
+	}
 	public int getShow_id() {
 		return show_id;
 	}

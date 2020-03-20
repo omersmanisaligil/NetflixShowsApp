@@ -21,6 +21,29 @@ public class ShowData extends Show {
 		return null;	
 	}
 	
+	public String editShow(String title) {
+		Show s=DataAccess.findShow(title);
+		this.setType(s.getType());
+		this.setTitle(s.getTitle());
+		this.setReleaseYear(s.getReleaseYear());
+		this.setRating(s.getRating());
+		this.setListedIn(s.getListedIn());
+		this.setDuration(s.getDuration());
+		this.setDirector(s.getDirector());
+		this.setDesc(s.getDesc());
+		this.setCountry(s.getCountry());
+		this.setCast(s.getCast());
+		
+		
+		return "adminEdit";
+	}
+	
+	public String updateShow() {
+		DataAccess.updateShow(getType(), getTitle(), getDirector(), getCast(), getCountry(), getReleaseYear(), getRating(), getDuration(), getListedIn(), getDesc());
+		
+		return "viewAll";//şimdilik buraya geri döndürüyorum
+	}
+	
 	public String getMessage() {
 		return message;
 	}
