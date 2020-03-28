@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta charset="UTF-8"/>
+<title>Netflix Shows App</title>
+<link  rel="stylesheet" type="text/css" href="css/style.css"/>
+</h:head>
+<body> 
+	<h:form>
+		<!-- <center> <h:graphicImage value="placeholder.jpg" height="100" width="1000"/></center>-->
+	<header class="head">
+					<a id="logo-link" href="index.jsf">
+						<h:graphicImage value="placeholder.jpg" height="100" width="100" class="left"/>
+					</a>
+				<div id="search-box">
+					<p:inputText placeholder="Search"/>
+				</div>
+				<div id="userArea">
+					<h:commandButton styleClass="button" value="Sign Up"/> 
+					<h:commandButton styleClass="button" value="Log In"/>
+				</div>
+			</header>
+			<nav id="navbar">
+			<ul>
+			<li><h:commandLink value="A" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="B" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="C" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="D" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="E" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="F" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="G" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="H" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="I" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="J" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="K" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="L" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="M" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="N" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="O" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="Ö" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="P" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="R" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="S" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="Ş" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="T" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="U" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="V" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="W" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="X" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="Y" styleClass="link-letter"></h:commandLink></li>
+			<li><h:commandLink value="Z" styleClass="link-letter"></h:commandLink></li>
+			</ul>
+		</nav>
+	<div class="container">	
+	<!-- header ve navbar templatelenecek -->
+		<section id="main-section">
+			<main id="main">
+				<p:dataTable var="show" value="#{showView.shows}" rows="10"
+		paginator="true" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+		currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+        rowsPerPageTemplate="10,25,50,100,150">
+        
+      		<p:column><p:tabView>
+      			<p:tab title="General Information">
+      				<h:panelGrid columns="2" cellpadding="3">
+      					<h:graphicImage value="https://occ-0-1009-1007.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABY2RaV7lmwNA_zFFJwKRBXihkZ48c9xXBr8LL1URZdCBJnSYzuVtZ7JwORZY6il2KQqMxR--UMwFFotXKMa3s-LGskE0.jpg?r=24b"/>
+      					<h:panelGrid>
+	      					<p><strong>Show Type:</strong></p><h:outputText value="#{show.type}" />
+	      					<p><strong>Show Title:</strong></p><h:outputText value="#{show.title}"/>
+	      					<p><strong>Director(s):</strong></p><h:outputText value="#{show.director}"/>
+	      					<p><strong>Rating:</strong></p><h:outputText value="#{show.rating}"/>
+	      					<p><strong>Show Duration</strong></p><h:outputText value="#{show.duration}"/>
+	      					<p><strong>Release Year:</strong></p><h:outputText value="#{show.releaseYear}"/>
+	      					<h:commandLink value="Edit" action="#{showData.editShow(show.title)}"/>	
+	      				</h:panelGrid>
+					</h:panelGrid>
+				</p:tab>
+				<p:tab title="Description">
+      				<h:panelGrid columns="2" cellpadding="5">
+      					<h:graphicImage value="https://occ-0-1009-1007.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABY2RaV7lmwNA_zFFJwKRBXihkZ48c9xXBr8LL1URZdCBJnSYzuVtZ7JwORZY6il2KQqMxR--UMwFFotXKMa3s-LGskE0.jpg?r=24b"/>
+						<h:panelGrid>      					
+      						<p><strong>Show Description:</strong></p><h:outputText value="#{show.desc}" />
+      						<p><strong>Cast:</strong></p><h:outputText value="#{show.cast}"/>
+      					</h:panelGrid>
+      				</h:panelGrid>
+					
+				</p:tab>
+      				
+      		</p:tabView></p:column></p:dataTable>
+			</main>
+			<aside id="sidebar">
+				<h:graphicImage>FILTER</h:graphicImage>
+				<ul id="listed-in"><!-- ne kadar kategori varsa o kadar eklememiz lazım,kategori listesi çekip -->
+					<li><h:commandLink value="Category 1" styleClass="link-letter"></h:commandLink></li>
+					<li><h:commandLink value="Category 2" styleClass="link-letter"></h:commandLink></li>
+					<li><h:commandLink value="Category 3" styleClass="link-letter"></h:commandLink></li>
+					<li><h:commandLink value="Category 4" styleClass="link-letter"></h:commandLink></li>
+					<li><h:commandLink value="Category 5" styleClass="link-letter"></h:commandLink></li>
+					<li><h:commandLink value="Category 6" styleClass="link-letter"></h:commandLink></li>
+					<li><h:commandLink value="Category 8" styleClass="link-letter"></h:commandLink></li>
+					<li><h:commandLink value="Category 9" styleClass="link-letter"></h:commandLink></li>
+					<li><h:commandLink value="Category 10" styleClass="link-letter"></h:commandLink></li>
+					<li><h:commandLink value="Category 11" styleClass="link-letter"></h:commandLink></li>
+					<li><h:commandLink value="Category 12" styleClass="link-letter"></h:commandLink></li>			
+				</ul>
+			</aside>
+		</section>	
+	</div><!-- container -->
+	<footer class="main-footer">
+			<h:graphicImage value="placeholder.jpg" height="100" width="100" class="left"/>
+			<p id="copyright">Copyright NetflixShowsApp© 2020 </p>
+			<div id="info-contact">	
+				<ul>
+					<li><h:commandLink value="Info"/></li> 
+					<li><h:commandLink value="Contact"/></li>
+				</ul>
+				</div>
+		</footer>
+	</h:form>
+</body>
+</html>

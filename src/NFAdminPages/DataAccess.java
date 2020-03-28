@@ -35,7 +35,8 @@ public class DataAccess {
 		System.out.println(AddShow("asassa","asdfasda","asdsa","a,a,a,a","sdsada",1,"as","as","asd","asd"));
 	}
 	
-	public static boolean AddShow(String type, String title, String director,String cast,String country,int releaseYear,String rating,String duration,String listedIn,String desc) throws ClassNotFoundException {
+	public static boolean AddShow(String type, String title, String director,String cast,String country,int releaseYear,String rating,String duration,
+			String listedIn,String desc) throws ClassNotFoundException {
 		//Show s1=new Show(type,title,director,cast,country,releaseYear,rating,duration,listedIn,desc);
 		try {
 			Class.forName(DbSettings.driver);
@@ -99,11 +100,9 @@ public class DataAccess {
 		try {
 			Class.forName(DbSettings.driver);
 			Connection conn=DriverManager.getConnection(DbSettings.url,DbSettings.username,DbSettings.password);
-			//director, cast, country falan için INSTR fonksiyonunu kullan.
-			/*String search="SELECT * FROM tblShows WHERE type=? AND title=? AND director=? AND cast=? AND country=? AND release_year=? AND rating=? AND duration=?"
-					+ " AND listed_in=? AND description=?";*/
-			String search="SELECT * FROM tblShows WHERE type=? AND INSTR(title,?) AND INSTR(director,?) AND INSTR(cast,?) AND INSTR(country,?) AND release_year=? AND rating=? "
-					+ "AND duration=?"
+			String search="SELECT * FROM tblShows WHERE type=? AND INSTR(title,?) AND INSTR(director,?)"
+					+ " AND INSTR(cast,?) AND INSTR(country,?) AND release_year=? AND rating=? "
+					+ "AND INSTR(duration,?)"
 					+"AND INSTR(listed_in,?) AND INSTR(description,?)";
 			PreparedStatement statement=conn.prepareStatement(search);
 			
@@ -121,7 +120,8 @@ public class DataAccess {
 			ResultSet rs=statement.executeQuery();
 			
 			while(rs.next()) {//null değerler varsa null gösterecek, onu ayarlamak lazım
-				resultList.add(new Show(rs.getString("type"), rs.getString("title"),rs.getString("director"),rs.getString("cast"),rs.getString("country"),rs.getInt("release_year"),
+				resultList.add(new Show(rs.getString("type"), rs.getString("title"),rs.getString("director"),rs.getString("cast"),rs.getString("country"),
+						rs.getInt("release_year"),
 						rs.getString("rating"),rs.getString("duration"),rs.getString("listed_in"),rs.getString("description")));
 			}
 			conn.close();
