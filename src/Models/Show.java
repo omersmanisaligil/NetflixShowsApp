@@ -10,6 +10,11 @@ public class Show {
 		this.type=type; this.title=title; this.director=director; this.cast=cast; this.country=country;
 		this.releaseYear=releaseYear; this.rating=rating; this.duration=duration; this.listedIn=listedIn; this.desc=desc;
 	}
+	public Show(int show_id,String type, String title, String director, String cast, String country, int releaseYear,
+			String rating, String duration, String listedIn, String desc) {
+		this.type=type; this.title=title; this.director=director; this.cast=cast; this.country=country;
+		this.releaseYear=releaseYear; this.rating=rating; this.duration=duration; this.listedIn=listedIn; this.desc=desc; this.show_id=show_id;
+	}
 	public Show() {
 		
 	}
