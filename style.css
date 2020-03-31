@@ -1,0 +1,221 @@
+body{
+	background-color:#bfc0c0;
+	color:black;
+	font-family:Arial, Helvetica, sans-serif;
+    font-size:16px;
+    line-height:1.6em;
+    margin:0;
+}
+.container{
+	width:80%;
+	margin:auto;
+	overflow:hidden;
+}
+ul{	
+	list-style:none;
+}
+a{
+	text-decoration:none;
+	color:#f5f5f1;
+	font-weight:bold;
+}
+
+.button{
+	background-color:#ef8364;
+	color:#f5f5f1;
+	height:40px;
+	width:100px;
+	border:none;
+	border-radius:10px;
+	font-size:16px;
+	font-weight:bold;
+}
+.button:hover{
+	background-color:#bfc0c0;
+	color:#2d3142;
+}
+
+.head{
+	background-color:#2d3142;
+	/*background-image: linear-gradient(to top, #2d3142, #353b4e, #3e465b, #475268, #4f5d75);*/
+	margin-bottom:0;
+	padding-bottom:0;
+	overflow:hidden;
+	height:150px;
+	position:relative;
+}
+.head img{
+	position:absolute;
+	left:60px;
+	top:20px;
+}
+
+.head #search-box{
+	position:absolute;
+	right:700px;
+	top: 60px;
+}
+.head #userArea{
+	position:absolute;
+	right:150px;
+	top:12px;
+}
+#userArea input{
+	display:block;
+	margin-top:15px;
+}
+
+#navbar{
+	background-color:#ef8364;
+	color:#e50914;	
+}
+#navbar ul{
+	padding-left:225px;
+}
+
+#navbar li{
+	display:inline;
+}
+
+#navbar a{
+	font-size:24px;
+	padding-right:16px;
+	padding-left:16px;
+	padding-top:10px;
+	padding-bottom:10px;	
+}
+#navbar a:hover{
+	background-color:#2d3142;
+	color:#ef8364;
+}
+
+#main-section{
+	min-height:600px;
+	background-color:#bfc0c0;
+	border-radius:15px;	
+}
+
+#main{
+	float:right;
+	width:80%;
+	box-sizing:border-box;
+}
+.bold-text{
+	font-weight: bold;
+}
+#sidebar{
+	min-height:600px;
+	float:left;
+	width:19%;
+	box-sizing:border-box;
+	background-color:#2d3142;
+	/*background-image: radial-gradient(circle, #2d3142, #353b4e, #3e465b, #475268, #4f5d75);*/
+}
+
+.main-footer{
+	background-color:#2d3142;
+	/*background-image: linear-gradient(to bottom, #2d3142, #353b4e, #3e465b, #475268, #4f5d75);*/
+	position:relative;
+	height:150px;
+	margin-top:20px;
+	box-sizing:border-box;
+}
+.main-footer img{
+	position:absolute;
+	left:60px;
+	top:20px;
+}
+.main-footer a{
+	color:#f5f5f1;
+}
+.main-footer #info-contact{
+	position:absolute;
+	right:30px;
+	bottom:30px;
+	
+}
+.main-footer #copyright{
+	position:absolute;
+	color:#f5f5f1;
+	bottom:10px;
+	right:750px;
+}
+
+@media(max-width:600px){
+    #main{
+        width:100%;
+        float:none;
+    }
+    #sidebar{
+        width:100%;
+        float:none;
+    }
+}
+.datatable{
+	background-color:black;
+	margin-bottom:20px;
+}
+.ui-datatable-even {
+    background-color:#2d3142;
+    color: #221F4B;
+    border:none;
+}
+
+.ui-datatable-odd {
+    background-color:#2d3142;
+    color: #221F4B;
+    border:none;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #1B262C;
+  color: white;
+  padding: 20px;
+  font-size: 16px;
+  border: none;
+  min-width: 50px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;} 
+
+.alldropdowns{
+	
+}
+
+
+
+
+
+
