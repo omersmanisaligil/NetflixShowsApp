@@ -26,6 +26,11 @@ public class ShowView extends Show implements Serializable {
 		return searchResults;
 	}
 	
+	/*public String getByChar(String c){
+		searchResults=DataAccess.searchByChar(c);	
+		return null;
+	}*/
+	
 	/*public static void main(String[] args) {
 		System.out.println(DataAccess.allShows());
 	}*/

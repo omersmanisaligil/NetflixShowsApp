@@ -19,13 +19,14 @@
       				<h:panelGrid columns="2" cellpadding="5">
       					<h:graphicImage value="https://occ-0-1009-1007.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABY2RaV7lmwNA_zFFJwKRBXihkZ48c9xXBr8LL1URZdCBJnSYzuVtZ7JwORZY6il2KQqMxR--UMwFFotXKMa3s-LGskE0.jpg?r=24b"/>
       					<h:panelGrid>
-	      					<h:outputText value="Show Type:"/><h:outputText value="#{show.type}" />
+   	      					<h:outputText value="Show ID:"/><h:outputText value="#{show.show_id}"/>   					
+	      					<h:outputText value="Show Type:"/><h:outputText value="#{show.type}"/>
 	      					<h:outputText value="Show Title:"/><h:outputText value="#{show.title}"/>
 	      					<h:outputText value="Director:"/><h:outputText value="#{show.director}"/>
 	      					<h:outputText value="Rating:"/><h:outputText value="#{show.rating}"/>
 	      					<h:outputText value="Duration:"/><h:outputText value="#{show.duration}"/>
 	      					<h:outputText value="Release Year:"/><h:outputText value="#{show.releaseYear}"/>
-	      					<h:outputText value="#{show.show_id}"/><h:commandLink value="Edit" action="#{showData.editShow(show.title)}"/>	
+	      					<h:outputText value="#{show.show_id}"/><h:commandLink value="Edit" action="#{showData.editShow(show.show_id)}"/>	
 	      				</h:panelGrid>
 					</h:panelGrid>
 				</p:tab>

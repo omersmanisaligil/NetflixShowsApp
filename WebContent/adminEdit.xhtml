@@ -13,7 +13,10 @@
 <body>
 	<h:form>
 		<h:panelGrid columns="3">
-
+			
+			<h:outputText value="Show ID" />
+			<h:inputText value="#{showData.show_id}" id="showID" readonly="#{facesContext.renderResponse}"/><br/>
+			
 			<h:outputText value="Type: " />
 			<p:selectOneMenu value="#{showData.type}" id="type" required="true"
 				requiredMessage="Please select the type" label="Type">
@@ -25,7 +28,7 @@
 			<p:message for="type"></p:message>
 
 			<h:outputText value="Title: " />
-			<h:inputText value="#{showData.title}" id="title" readonly="#{facesContext.renderResponse}"/><br/>
+			<h:inputText value="#{showData.title}" id="title"/><br/>
 
 
 			<h:outputText value="Rating: " />

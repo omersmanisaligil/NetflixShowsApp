@@ -21,8 +21,9 @@ public class ShowData extends Show {
 		return null;	
 	}
 	
-	public String editShow(String title) {
-		Show s=DataAccess.findShow(title);
+	public String editShow(int id) {
+		Show s=DataAccess.findShow(id);
+		this.setShow_id(s.getShow_id());
 		this.setType(s.getType());
 		this.setTitle(s.getTitle());
 		this.setReleaseYear(s.getReleaseYear());
@@ -39,7 +40,7 @@ public class ShowData extends Show {
 	}
 	
 	public String updateShow() {
-		DataAccess.updateShow(getType(), getTitle(), getDirector(), getCast(), getCountry(), getReleaseYear(), getRating(), getDuration(), getListedIn(), getDesc());
+		DataAccess.updateShow(getShow_id(),getType(), getTitle(), getDirector(), getCast(), getCountry(), getReleaseYear(), getRating(), getDuration(), getListedIn(), getDesc());
 		
 		return "viewAll";//şimdilik buraya geri döndürüyorum
 	}
