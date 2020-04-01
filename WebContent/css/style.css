@@ -21,7 +21,7 @@ a{
 }
 
 .button{
-	background-color:#ef8364;
+	background-color:#4e9a06;
 	color:#f5f5f1;
 	height:40px;
 	width:100px;
@@ -31,9 +31,8 @@ a{
 	font-weight:bold;
 }
 .button:hover{
-	background-color:#bfc0c0;
-	color:#2d3142;
-}
+	background-color:#235811;
+	}
 
 .head{
 	background-color:#2d3142;
@@ -66,7 +65,7 @@ a{
 }
 
 #navbar{
-	background-color:#ef8364;
+	background-color:#2d3142;
 	color:#e50914;	
 }
 #navbar ul{
@@ -97,7 +96,7 @@ a{
 
 #main{
 	float:right;
-	width:80%;
+	width:89%;
 	box-sizing:border-box;
 }
 .bold-text{
@@ -106,7 +105,7 @@ a{
 #sidebar{
 	min-height:600px;
 	float:left;
-	width:19%;
+	width:10%;
 	box-sizing:border-box;
 	background-color:#2d3142;
 	/*background-image: radial-gradient(circle, #2d3142, #353b4e, #3e465b, #475268, #4f5d75);*/
@@ -116,7 +115,7 @@ a{
 	background-color:#2d3142;
 	/*background-image: linear-gradient(to bottom, #2d3142, #353b4e, #3e465b, #475268, #4f5d75);*/
 	position:relative;
-	height:150px;
+	height:120px;
 	margin-top:20px;
 	box-sizing:border-box;
 }
@@ -151,22 +150,109 @@ a{
         float:none;
     }
 }
-.datatable{
-	background-color:black;
-	margin-bottom:20px;
-}
 .ui-datatable-even {
     background-color:#2d3142;
-    color: #221F4B;
+    color: white;
     border:none;
 }
 
 .ui-datatable-odd {
     background-color:#2d3142;
-    color: #221F4B;
+    color: white;
     border:none;
 }
+.ui-datatable-even a{
+	color:#4e9a06;
+}
+.ui-datatable-odd a{
+	color:#4e9a06;
+}
+.ui-datatable-scrollable-header{
+	background-color:#2d3142;
+}
+.ui-datatable-scrollable-body{
+	background-color:#2d3142;
+}
+.ui-datatable-header{
+	background-color:#2d3142;
+}
+.ui-datatable-scrollable-header-box{
+	background-color:#2d3142;
+}
+.ui-widget-header .ui-datatable-scrollable-header{
+	background-color:#2d3142;	
+}
+.ui-paginator{
+	background-color:#2d3142;
+	color:#f5f5f1;
+	}
+.ui-paginator-pages .ui-state-active{
+	background-color:#2d3142;
+	color:#f5f5f1;
+}
+.ui-paginator-pages .ui-state-default{
+	background-color:#2d3142;
+	color:#f5f5f1;
+}
+.ui-paginator-pages .ui-state-hover{
+	background-color:#2d3142;
+	color:#f5f5f1;
+}
+.ui-paginator-next .ui-state-default .ui-corner-all{
+	background-color:#2d3142;	
+}
+.ui-paginator-rpp-options{
+	background-color:#2d3142;
+}
+.ui-state-default{
+	background-color:#2d3142;
+}
+/* Dropdown Button */
+.dropbtn {
+  background-color: #1B262C;
+  color: white;
+  padding: 20px;
+  font-size: 16px;
+  border: none;
+  min-width: 50px;
+}
 
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;} 
+
+.alldropdowns{
+	
+}
 
 
 
