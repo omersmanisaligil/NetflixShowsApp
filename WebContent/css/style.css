@@ -10,6 +10,7 @@ body{
 	width:80%;
 	margin:auto;
 	overflow:hidden;
+	padding-top: 60px;
 }
 ul{	
 	list-style:none;
@@ -21,11 +22,11 @@ a{
 }
 
 .button{
-	background-color:#4e9a06;
+	background-color:#414141;
 	color:#f5f5f1;
 	height:40px;
 	width:100px;
-	border:none;
+	border: solid;
 	border-radius:10px;
 	font-size:16px;
 	font-weight:bold;
@@ -35,13 +36,14 @@ a{
 	}
 
 .head{
-	background-color:#2d3142;
+	background-color:#414141;
 	/*background-image: linear-gradient(to top, #2d3142, #353b4e, #3e465b, #475268, #4f5d75);*/
 	margin-bottom:0;
 	padding-bottom:0;
 	overflow:hidden;
 	height:150px;
 	position:relative;
+	padding-bottom: 0px;
 }
 .head img{
 	position:absolute;
@@ -65,8 +67,12 @@ a{
 }
 
 #navbar{
-	background-color:#2d3142;
-	color:#e50914;	
+	background-color: inherit;
+	color:#e50914;			
+	float: left;
+	border: none;
+	width: 100%;
+	
 }
 #navbar ul{
 	padding-left:225px;
@@ -105,14 +111,18 @@ a{
 #sidebar{
 	min-height:600px;
 	float:left;
-	width:10%;
+	min-width:10%;
 	box-sizing:border-box;
-	background-color:#2d3142;
+	background-color: #313131;
 	/*background-image: radial-gradient(circle, #2d3142, #353b4e, #3e465b, #475268, #4f5d75);*/
 }
 
+#sidebar .li{
+	float: left;
+}
+
 .main-footer{
-	background-color:#2d3142;
+	background-color: #313131;
 	/*background-image: linear-gradient(to bottom, #2d3142, #353b4e, #3e465b, #475268, #4f5d75);*/
 	position:relative;
 	height:120px;
@@ -209,18 +219,21 @@ a{
 }
 /* Dropdown Button */
 .dropbtn {
-  background-color: #1B262C;
+  background-color: #414141;
   color: white;
   padding: 20px;
   font-size: 16px;
   border: none;
-  min-width: 50px;
-}
+  min-width: 50px; 
+  min-width: 3.6%; 
+  }
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
   position: relative;
   display: inline-block;
+  min-width: 3.6%;
+  
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -238,7 +251,7 @@ a{
   color: black;
   padding: 12px 16px;
   text-decoration: none;
-  display: block;
+  display: block; 
 }
 
 /* Change color of dropdown links on hover */
@@ -250,12 +263,40 @@ a{
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #3e8e41;} 
 
-.alldropdowns{
+
+#container-nav{	
+	width: inherit;
+	heigth: 16px;
+	padding-bottom: 30px;
+	flex-direction: column;
+}
+
+#big-container{
+	
+	flex-direction: column;
+	width: 100%;
 	
 }
 
 
+body .ui-datatable thead th {
+	background-color: #313131 !important;	
+	color: white !important;
+}
 
+body .ui-datatable .ui-datatable-data > tr > td {
+	background-color: #313131 !important;	
+}
 
+body .ui-datatable .ui-paginator.ui-paginator-top {
+	background-color: #313131 !important;
+}
 
+body .ui-datatable .ui-paginator.ui-paginator-bottom {
+	background-color: #313131 !important;
+}
+
+body .ui-datatable .ui-datatable-scrollable-header{
+	background-color: #313131 !important;
+}
 
