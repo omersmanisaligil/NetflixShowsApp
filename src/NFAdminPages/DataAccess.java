@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Models.Show;
+import Models.User;
 
 
 public class DataAccess {
@@ -187,6 +188,51 @@ public class DataAccess {
 		}
 		
 	}
+	
+	public static boolean AddUser(String username,String password,String email,String profilePic,boolean isAdmin) {
+		try {
+			Class.forName(DbSettings.driver);
+			Connection conn=DriverManager.getConnection(DbSettings.url,DbSettings.username,DbSettings.password);
+			String add="INSERT INTO tblUsers(username,password,profilepic,email,isAdmin) VALUES(?,?,?,?,?,?)";
+			
+			PreparedStatement statement=conn.prepareStatement(add);
+			
+			statement.setString(1, username);
+			statement.setString(2, password);
+			statement.setString(3, profilePic);
+			statement.setString(4, email);
+			statement.setBoolean(5, isAdmin);
+			
+			statement.executeUpdate();
+			conn.close();
+			
+			return true;
+		}catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public static boolean ValidateUser(String username,String password) {
+			try {
+				Class.forName(DbSettings.driver);
+				Connection conn=DriverManager.getConnection(DbSettings.url,DbSettings.username,DbSettings.password);
+				
+				String query="SELECT username,password FROM tblUsers WHERE username=? and password=?";
+				PreparedStatement statement=conn.prepareStatement(query);
+				
+				statement.setString(1, username);
+				statement.setString(2,password);
+				
+				statement.executeUpdate();
+				conn.close();
+			}catch(SQLException | ClassNotFoundException e) {
+				e.printStackTrace();
+				return false;
+			}
+		return true;
+	}
 	/*public static List<Show> searchByChar(String c){
 		List<Show> resultList=new ArrayList<Show>();
 		
@@ -205,5 +251,6 @@ public class DataAccess {
 		return resultList;
 	}*/
 
+	
 }
 
