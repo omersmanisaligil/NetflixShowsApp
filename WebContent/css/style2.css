@@ -333,7 +333,7 @@ body .ui-datatable .ui-paginator.ui-paginator-top {
 .hero{
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.4)rgba(0,0,0,0.4)),url(banner.jpg);
+    background-image: url(https://i.pinimg.com/originals/d4/b3/e3/d4b3e3e114a251ed9d7d53e652210e25.jpg);
         
     background-position: center;
     background-size: cover;
@@ -350,7 +350,7 @@ body .ui-datatable .ui-paginator.ui-paginator-top {
     overflow: hidden;
 }
 .button-box{
-    width: 220px;
+    width: 320px;
     margin: 35px auto;
     position: relative;
     box-shadow: 0 0 10px 5px #20bf55;
@@ -358,8 +358,14 @@ body .ui-datatable .ui-paginator.ui-paginator-top {
     border: none;
     border-color: #015668;
     background-color: #004445;
-	
+    font-size: 17px;
+    padding-left: 10px;	
 }
+
+.button-box:hover{
+	background-color: #f35588;	
+}
+
 .toggle-btn{
     padding: 10px 30px;
     cursor: pointer;
@@ -371,6 +377,11 @@ body .ui-datatable .ui-paginator.ui-paginator-top {
     color: white;
     
 }
+
+.toggle-btn:hover{	
+	background-color: #f35588;
+}
+
 .btn{
     top: 0;
     left: 0;
@@ -381,11 +392,12 @@ body .ui-datatable .ui-paginator.ui-paginator-top {
     border-radius: 30px;
     transition: .5s;
     
+    
 }
 
 
 .input-group{
-    top: 180px;
+    top: 150px;    
     position: absolute;
     width: 280px;
     align: center;
@@ -421,15 +433,22 @@ body .ui-datatable .ui-paginator.ui-paginator-top {
     color: white;
 }
 
-.chech-box{
-    margin: 30px 10px 30px 0;
-
+.submit-btn:hover{
+	background-color: #f35588;
 }
+
+
 .span{
     color #777;
     font-size: 9px;
     bottom: 68px;
     position: absolute;
+}
+
+.image{
+	height: 50px;
+	width: auto;
+	padding-left: 165px;
 }
 
 #login{

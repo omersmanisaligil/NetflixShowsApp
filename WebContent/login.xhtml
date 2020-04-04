@@ -13,20 +13,23 @@
    <div class="hero">
    		<div class="form-box">
    			<div class="button-box">
-   				<div id="btn"></div>
-   				<h:button type="button" class="toggle-btn" value="Log In" action="#"></h:button>
-   				<h:button type="button" class="toggle-btn" value="Sign Up" action="#"></h:button>
+   				   				
+   				<a href="signup.jsf">Do not have an account? Create one.</a>    								
+   				
    			</div>   			
    		
+   		<h:graphicImage class="image" value="https://cdn2.iconfinder.com/data/icons/food-drink-60/50/1F37F-popcorn-512.png"/>
    		
    			<h:form id="signup" class="input-group">   				
-   				<p:inputText styleClass="input-field" placeholder="Username"></p:inputText>   				
-   				<p:inputText styleClass="input-field" placeholder="Email"></p:inputText>
-   				<p:inputText styleClass="input-field" placeholder="Password"></p:inputText>
-   				<h:button type="submit" class="submit-btn" value="Log In"></h:button>
+   				<p:inputText type="text" class="input-field" placeholder="Username" value="#{userData.username}"></p:inputText>   				
+   				<p:inputText type="password" class="input-field" placeholder="Password" value="#{userData.password}"></p:inputText>   				
+   				<h:commandButton class="submit-btn" value="Log In" action="#{userData.Login}"></h:commandButton>
+   				<h:commandButton class="submit-btn" value="Homepage" action="index?faces-redirect-true"></h:commandButton>   				
    			</h:form>
    			
-     	</div>  
+   			
+   			
+   		</div>  
    </div>
    
     

@@ -20,8 +20,8 @@ public class UserData extends User implements Serializable{
 		return "login";
 	}
 	public String signUp(){
-		if(DataAccess.AddUser(getUsername(),getPassword(),getEmail(),getProfilePic(),isAdmin())){
-			return null; 
+		if(DataAccess.AddUser(getUsername(),getPassword(),getEmail())){//profilepic, isAdmin
+			return "index"; 
 		}
 		else {
 			return "error";
@@ -29,7 +29,7 @@ public class UserData extends User implements Serializable{
 	}
 	
 	public String Login() {
-		if(DataAccess.ValidateUser(getUsername(),getPassword()))
+		if(DataAccess.LoginUser(getUsername(),getPassword()))
 			return "index";
 		else
 			return "error";

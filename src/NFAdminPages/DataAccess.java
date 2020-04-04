@@ -189,32 +189,54 @@ public class DataAccess {
 		
 	}
 	
-	public static boolean AddUser(String username,String password,String email,String profilePic,boolean isAdmin) {
+	public static boolean checkEmail(String email) {
+		boolean result=false;
 		try {
 			Class.forName(DbSettings.driver);
 			Connection conn=DriverManager.getConnection(DbSettings.url,DbSettings.username,DbSettings.password);
-			String add="INSERT INTO tblUsers(username,password,profilepic,email,isAdmin) VALUES(?,?,?,?,?,?)";
+			String sql = "SELECT * FROM tblUser where email=?";
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, email);
+			ResultSet rs = statement.executeQuery();
 			
-			PreparedStatement statement=conn.prepareStatement(add);
+			if (rs.next())
+				result = true;
+			else
+				result = false;
 			
-			statement.setString(1, username);
-			statement.setString(2, password);
-			statement.setString(3, profilePic);
-			statement.setString(4, email);
-			statement.setBoolean(5, isAdmin);
-			
-			statement.executeUpdate();
 			conn.close();
 			
-			return true;
-		}catch (SQLException | ClassNotFoundException e) {
+		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return false;
 		}
+		return result;
+		
 	}
 	
-	public static boolean ValidateUser(String username,String password) {
+	public static boolean AddUser(String username,String password,String email) {
+			try {
+				Class.forName(DbSettings.driver);
+				Connection conn=DriverManager.getConnection(DbSettings.url,DbSettings.username,DbSettings.password);
+				String add="INSERT INTO tblUsers(username,password,email) VALUES(?,?,?)";
+				
+				PreparedStatement statement=conn.prepareStatement(add);
+				
+				statement.setString(1, username);
+				statement.setString(2, password);
+				statement.setString(3, email);
+				
+				statement.executeUpdate();
+				conn.close();
+				
+				return true;
+			}catch (SQLException | ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			}
+	}	
+	public static boolean LoginUser(String username,String password) {
 			try {
 				Class.forName(DbSettings.driver);
 				Connection conn=DriverManager.getConnection(DbSettings.url,DbSettings.username,DbSettings.password);
@@ -225,13 +247,15 @@ public class DataAccess {
 				statement.setString(1, username);
 				statement.setString(2,password);
 				
-				statement.executeUpdate();
+				statement.executeQuery();
+				
+				
 				conn.close();
+				return true;
 			}catch(SQLException | ClassNotFoundException e) {
 				e.printStackTrace();
 				return false;
 			}
-		return true;
 	}
 	/*public static List<Show> searchByChar(String c){
 		List<Show> resultList=new ArrayList<Show>();
