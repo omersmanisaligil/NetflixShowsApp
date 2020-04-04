@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <head>
 <meta charset="UTF-8"/>
 <title>Log In</title>
@@ -12,17 +13,19 @@
    <div class="hero">
    		<div class="form-box">
    			<div class="button-box">
-   				<div id="btn"></div>
-   				<h:button type="button" class="toggle-btn" value="Log In" action="#"></h:button>
-   				<h:button type="button" class="toggle-btn" value="Sign Up" action="#"></h:button>
+   				   				
+   				<a href="signup.jsf">Do not have an account? Create one.</a>    								
+   				
    			</div>   			
    		
+   		<h:graphicImage class="image" value="https://cdn2.iconfinder.com/data/icons/food-drink-60/50/1F37F-popcorn-512.png"/>
    		
    			<h:form id="signup" class="input-group">   				
-   				<input type="text" class="input-field" value="Username"></input>   				
-   				<input type="email" class="input-field" value="Email"></input>
-   				<input type="password" class="input-field" value="Password"></input> 
-   				<h:button type="submit" class="submit-btn" value="Log In"></h:button>
+   				<p:inputText type="text" class="input-field" placeholder="Username"></p:inputText>   				
+   				<p:inputText type="email" class="input-field" placeholder="Email"></p:inputText>   				
+   				<p:inputText type="password" class="input-field" placeholder="Password"></p:inputText>   				
+   				<h:commandButton class="submit-btn" value="Log In" action="#"></h:commandButton>
+   				<h:commandButton class="submit-btn" value="Homepage" action="index?faces-redirect-true"></h:commandButton>   				
    			</h:form>
    			
    			
