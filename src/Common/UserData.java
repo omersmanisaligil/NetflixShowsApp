@@ -2,7 +2,8 @@ package Common;
 
 import java.io.Serializable;
 
-import javax.annotation.ManagedBean;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 
 import Models.User;
@@ -12,10 +13,10 @@ import NFAdminPages.DataAccess;
 @SessionScoped
 public class UserData extends User implements Serializable{
 	
-	public String btnSignUp() {
-		return "signUp";
+	public String btnS() {
+		return "signup";
 	}
-	public String btnLogin() {
+	public String btnL() {
 		return "login";
 	}
 	public String signUp(){

@@ -4,11 +4,13 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
+
 import Models.Show;
 import NFAdminPages.DataAccess;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class ShowData extends Show {
 	private String message;
 	public String addShow() throws ClassNotFoundException {
@@ -20,7 +22,6 @@ public class ShowData extends Show {
 		}
 		return null;	
 	}
-	
 	public String editShow(int id) {
 		Show s=DataAccess.findShow(id);
 		this.setShow_id(s.getShow_id());
