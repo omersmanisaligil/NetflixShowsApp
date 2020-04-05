@@ -257,6 +257,31 @@ public class DataAccess {
 				return false;
 			}
 	}
+	public static boolean validate(String username,String password) {
+		Connection conn=null;
+		try {
+			Class.forName(DbSettings.driver);
+			conn=DriverManager.getConnection(DbSettings.url,DbSettings.username,DbSettings.password);
+			String query="SELECT username,password FROM tblUsers WHERE username=? and password=?";
+			PreparedStatement statement=conn.prepareStatement(query);
+			
+			statement.setString(1, username);
+			statement.setString(2,password);
+			
+			ResultSet rs=statement.executeQuery();
+			
+			if(rs.next()) {
+				conn.close();
+				return true;
+			}
+		}catch(SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return false;
+	}
+	
+	
 	/*public static List<Show> searchByChar(String c){
 		List<Show> resultList=new ArrayList<Show>();
 		

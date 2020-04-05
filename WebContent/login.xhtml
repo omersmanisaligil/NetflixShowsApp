@@ -23,7 +23,7 @@
    			<h:form id="signup" class="input-group">   				
    				<p:inputText type="text" class="input-field" placeholder="Username" value="#{userData.username}"></p:inputText>   				
    				<p:inputText type="password" class="input-field" placeholder="Password" value="#{userData.password}"></p:inputText>   				
-   				<h:commandButton class="submit-btn" value="Log In" action="#{userData.Login}"></h:commandButton>
+   				<h:commandButton class="submit-btn" value="Log In" action="#{userData.validateUsernamePassword}"></h:commandButton>
    				<h:commandButton class="submit-btn" value="Homepage" action="index?faces-redirect-true"></h:commandButton>   				
    			</h:form>
    			

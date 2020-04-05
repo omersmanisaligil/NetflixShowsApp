@@ -21,8 +21,10 @@
 					<p:inputText placeholder="Search"/>
 				</div>
 				<div id="userArea">
-					<h:commandButton styleClass="button" value="Sign Up" action="#{userData.btnS}"/> 
-					<h:commandButton styleClass="button" value="Log In" action="#{userData.btnL}"/>
+					<h:commandButton id="btnsignup" styleClass="button" value="Sign Up" action="#{userData.btnS}" rendered="#{userData.loggedIn}"/>
+					<h:commandButton id="btnlogin" styleClass="button" value="Log In" action="#{userData.btnL}" rendered="#{userData.loggedIn}"/>
+					<p id="welcome">Welcome #{userData.username}</p>
+					<h:commandButton id="btnLogout" styleClass="button" value="Log Out" action="#{userData.logout}" rendered="#{!userData.loggedIn}"/>
 				</div>
 			</header>
 			
@@ -100,5 +102,7 @@
 				</div>
 		</footer>
 	</h:form>
+	<script type="text/javascript">
+	</script>
 </body>
 </html>
