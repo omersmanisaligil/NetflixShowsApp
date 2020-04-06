@@ -10,7 +10,7 @@ import Models.Show;
 import NFAdminPages.DataAccess;
 
 @ManagedBean
-@SessionScoped
+
 public class ShowData extends Show {
 	private String message;
 	public String addShow() throws ClassNotFoundException {
@@ -39,11 +39,27 @@ public class ShowData extends Show {
 		
 		return "adminEdit";
 	}
-	
+
 	public String updateShow() {
 		DataAccess.updateShow(getShow_id(),getType(), getTitle(), getDirector(), getCast(), getCountry(), getReleaseYear(), getRating(), getDuration(), getListedIn(), getDesc());
 		
 		return "viewAll";//şimdilik buraya geri döndürüyorum
+	}
+	
+	public String showPage(int id) {
+		Show s=DataAccess.findShow(id);
+		this.setShow_id(s.getShow_id());
+		this.setType(s.getType());
+		this.setTitle(s.getTitle());
+		this.setReleaseYear(s.getReleaseYear());
+		this.setRating(s.getRating());
+		this.setListedIn(s.getListedIn());
+		this.setDuration(s.getDuration());
+		this.setDirector(s.getDirector());
+		this.setDesc(s.getDesc());
+		this.setCountry(s.getCountry());
+		this.setCast(s.getCast());
+		return "show-page";
 	}
 	
 	public String getMessage() {

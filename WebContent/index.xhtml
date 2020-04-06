@@ -23,8 +23,9 @@
 				<div id="userArea">
 					<h:commandButton id="btnsignup" styleClass="button" value="Sign Up" action="#{userData.btnS}" rendered="#{userData.loggedIn}"/>
 					<h:commandButton id="btnlogin" styleClass="button" value="Log In" action="#{userData.btnL}" rendered="#{userData.loggedIn}"/>
-					<p id="welcome">Welcome #{userData.username}</p>
 					<h:commandButton id="btnLogout" styleClass="button" value="Log Out" action="#{userData.logout}" rendered="#{!userData.loggedIn}"/>
+					<h:commandButton id="myProfile" styleClass="button" value="My Profile" action="#{userData.toProfile}" rendered="#{!userData.loggedIn}"/>
+					<h:outputText rendered="#{!userData.loggedIn}" id="welcome">Welcome #{userData.username}</h:outputText>
 				</div>
 			</header>
 			
@@ -56,7 +57,7 @@
          	<h:outputText value="#{show.listedIn}" />        
          	<h:outputText value="#{show.desc}" />     
          	<h:commandLink value="Edit" action="#{showData.editShow(show.show_id)}"/>
-         	<h:commandLink value="See More..."/>
+         	<h:commandLink value="See More..." action="#{showData.showPage(show.show_id)}"/>
 			</h:panelGrid></p:column>
 			<!--<p:column headerText="Type"><h:outputText value="#{show.type}" /></p:column>        
          	<p:column headerText="Title"><h:outputText value="#{show.title}" /></p:column>        

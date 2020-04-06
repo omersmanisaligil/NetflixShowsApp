@@ -17,6 +17,7 @@ import NFAdminPages.DataAccess;
 @SessionScoped
 public class UserData extends User implements Serializable{
 	private boolean loggedIn=true;
+	private String rank="Member";
 	public String btnS() {
 		return "signup";
 	}
@@ -35,11 +36,20 @@ public class UserData extends User implements Serializable{
 		return super.getUsername();
 	}
 	
+	public String getRank() {
+		return rank;
+	}
+	public void setRank(String rank) {
+		this.rank = rank;
+	}
 	public boolean isLoggedIn() {
 		return loggedIn;
 	}
 	public void setLoggedIn(Boolean loggedIn) {
 		this.loggedIn = loggedIn;
+	}
+	public String toProfile(){
+		return "user-profile";
 	}
 	public String validateUsernamePassword() {
 		boolean valid=DataAccess.validate(getUsername(),getPassword());

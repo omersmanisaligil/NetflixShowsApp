@@ -26,7 +26,7 @@ a:hover {
 .container {
   margin: 0 auto;
   width: 780px;
-  height: 640px;
+  height: 680px;
   background: #313131;
   border-radius: 5px;
   position: relative;
@@ -136,10 +136,13 @@ a:hover {
 
 .column2 {
   padding-left: 41px;
-  padding-top: 30px;
+  padding-top: 10px;
   margin-left: 20px;
   width: 480px;
   float: left;
+}
+.column2 p{
+	color:#C4AF3D;
 }
 
 .avatars {

@@ -14,38 +14,46 @@
  	
  	<div class="movie-card">
   
-  <div class="container">
+  <div class="container"> 
+  
     
-    <a href="#"><img src="https://www2.stillwild.co/img/75101/1-S0104-dexter-6-tv-dizisi-posteri-%C3%B6zel-saten-poster-bask%C4%B1-bez-kuma%C5%9F-duvar-posteri-bask%C4%B1-ipek-kuma%C5%9F-bask%C4%B1-poster.jpg" 
+    <a href="#"><h:graphicImage value="placeholder.jpg" 
     alt="cover" class="cover" /></a>
         
     <div class="hero">
             
       <div class="details">
       
-       <!-- Title and rating --> <div class="title1">Dexter <span>TV-MA</span></div>
+ 		<div class="title1">  <!-- Title and rating -->
+ 		<h:outputText value="#{showData.title}"/>
+ 		</div> 
 
-       <!-- Country --> <div class="title2">United States</div>    
-        
+      <div class="title2"><h:outputText value="#{showData.country}"/></div>  <!-- Country -->       
       </div> <!-- end details -->
       
     </div> <!-- end hero -->
     
     <div class="description">
       
-     <!-- listed in --> <div class="column1">
-        <span class="tag">crime tv shows</span>
-        <span class="tag">tv dramas</span>
-        <span class="tag">tv mysteries</span>
+     <!-- listed in --> <div class="column1"> <!-- şimdilik böyle, commlink list yapılacak -->
+        <h:outputText value="#{showData.listedIn}"/>
       </div> <!-- end column1 -->
       
       <div class="column2"> <!-- show description -->
-        
-        <p>By day, mild-mannered Dexter is a blood-spatter analyst for the Miami police. But at night, he is a serial killer who only targets other murderers.</p>
-        
-        
+ 		<h:panelGrid columns="2">
+	 		<p><strong>Desc:</strong></p>
+	 		<h:outputText value="#{showData.desc}"/>
+	 		<p><strong>Cast:</strong></p>
+	 		<h:outputText value="#{showData.cast}"/>
+	 		<p><strong>Director:</strong></p>	 		
+	    	<h:outputText value="#{showData.director}"/>
+	 		<p><strong>Duration:</strong></p>	
+	    	<h:outputText value="#{showData.duration}"/>
+ 		</h:panelGrid>
       </div> <!-- end column2 -->
     </div> <!-- end description -->
+    
+    
     
     <div class="links">
    	 <a href="index.jsf">Homepage</a>
