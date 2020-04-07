@@ -32,11 +32,7 @@ public class DataAccess {
 	
 	
 	
-	public static void main(String[] args) throws ClassNotFoundException {
-		//test
-	    //getConnection();
-		System.out.println(AddShow("asassa","asdfasda","asdsa","a,a,a,a","sdsada",1,"as","as","asd","asd"));
-	}
+	
 	
 	public static boolean AddShow(String type, String title, String director,String cast,String country,int releaseYear,String rating,String duration,
 			String listedIn,String desc) throws ClassNotFoundException {
@@ -85,14 +81,11 @@ public class DataAccess {
 				rs=statement.executeQuery(sql);
 			}
 			else {
-				sql="SELECT * FROM tblShows WHERE upper(substr(title,1,1)) IN (?)";
-						//"SELECT * FROM tblShows WHERE title REGEXP ?";
-						//"SELECT * FROM tblShows WHERE title LIKE ?";
+				sql="SELECT * FROM tblShows WHERE title LIKE ?"; 
 				PreparedStatement preparedStatement=conn.prepareStatement(sql);
 				
-				preparedStatement.setString(1,key); 
-				
-				rs=preparedStatement.executeQuery(sql);
+				preparedStatement.setString(1,key+"%"); 
+				rs=preparedStatement.executeQuery();
 			}
 			
 			
@@ -295,7 +288,12 @@ public class DataAccess {
 		return false;
 	}
 	
-	
+	public static void main(String[] args) throws ClassNotFoundException {
+		//test
+	    //getConnection();
+		//System.out.println(AddShow("asassa","asdfasda","asdsa","a,a,a,a","sdsada",1,"as","as","asd","asd"));
+		System.out.println(allShows("A"));
+	}
 	/*public static List<Show> searchByChar(String c){
 		List<Show> resultList=new ArrayList<Show>();
 		
