@@ -4,6 +4,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mysql.jdbc.StringUtils;
+
 import Models.Show;
 import Models.User;
 
@@ -70,17 +72,29 @@ public class DataAccess {
 		
 	}
 	
-	public static List<Show> allShows(){
+	public static List<Show> allShows(String key){
 		List<Show> allShows=new ArrayList<Show>();
-		
 		try {
 			Class.forName(DbSettings.driver);
 			Connection conn=DriverManager.getConnection(DbSettings.url,DbSettings.username,DbSettings.password);
-			String sql="SELECT * FROM NFBase.tblShows";
-;
-			Statement statement=conn.createStatement();
+			String sql;
+			ResultSet rs;
+			if(key.equals(".")){
+				sql="SELECT * FROM NFBase.tblShows";
+				Statement  statement=conn.createStatement();
+				rs=statement.executeQuery(sql);
+			}
+			else {
+				sql="SELECT * FROM tblShows WHERE upper(substr(title,1,1)) IN (?)";
+						//"SELECT * FROM tblShows WHERE title REGEXP ?";
+						//"SELECT * FROM tblShows WHERE title LIKE ?";
+				PreparedStatement preparedStatement=conn.prepareStatement(sql);
+				
+				preparedStatement.setString(1,key); 
+				
+				rs=preparedStatement.executeQuery(sql);
+			}
 			
-			ResultSet rs=statement.executeQuery(sql);
 			
 			while(rs.next()) {
 				allShows.add(new Show(rs.getInt("show_id"),rs.getString("type"),rs.getString("title"),rs.getString("director"),rs.getString("cast"),

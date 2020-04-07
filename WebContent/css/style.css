@@ -61,37 +61,44 @@ a{
 	right:150px;
 	top:5px;
 }
+.head #user-pp{
+	position:absolute;
+	right:400px;
+	top:10px;
+}
 #userArea input{
 	display:block;
 	margin-top:15px;
 }
 
-#navbar{
-	background-color: inherit;
+.navbar{
+	background-color:#2d3142;
 	color:#e50914;			
 	float: left;
+	padding-bottom:0px;
 	border: none;
 	width: 100%;
 	
 }
-#navbar ul{
+.navbar ul{
 	padding-left:225px;
+	padding-bottom:0px;
 }
 
-#navbar li{
+.navbar li{
 	display:inline;
 }
 
-#navbar a{
+.navbar a{
 	font-size:24px;
-	padding-right:16px;
-	padding-left:16px;
+	padding-right:20px;
+	padding-left:20px;
 	padding-top:10px;
-	padding-bottom:10px;	
+	padding-bottom:0px;
+	margin-bottom:0px;
 }
-#navbar a:hover{
-	background-color:#2d3142;
-	color:#ef8364;
+.navbar a:hover{
+	background-color:#414141;
 }
 
 #main-section{
@@ -267,9 +274,10 @@ a{
 #container-nav{	
 	width: inherit;
 	heigth: 16px;
-	padding-bottom: 30px;
+	padding-bottom:0px;
 	flex-direction: column;
 }
+
 
 #big-container{
 	

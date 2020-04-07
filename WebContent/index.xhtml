@@ -20,6 +20,11 @@
 				<div id="search-box">
 					<p:inputText placeholder="Search"/>
 				</div>
+				<div id="user-pp">
+					<a href="user-profile.jsf">
+						<h:graphicImage height="75" width="75" value="resources/images/pp_placeholder.jpeg" rendered="#{!userData.loggedIn}"/>
+					</a>
+				</div>
 				<div id="userArea">
 					<h:commandButton id="btnsignup" styleClass="button" value="Sign Up" action="#{userData.btnS}" rendered="#{userData.loggedIn}"/>
 					<h:commandButton id="btnlogin" styleClass="button" value="Log In" action="#{userData.btnL}" rendered="#{userData.loggedIn}"/>
@@ -31,15 +36,47 @@
 			
 		
 		<div id="big-container">
-				<div id="container-nav">
-		</div>		
+				<div id="container-nav" class="navbar">
+					<p:commandLink value="All" ><p:ajax update="data-show" listener='#{showView.setKey(".")}' /></p:commandLink>
+					<p:commandLink value="A" ><p:ajax update="data-show" listener='#{showView.tableCall("A")}' /></p:commandLink>
+					<p:commandLink>B</p:commandLink>
+					<p:commandLink>C</p:commandLink>
+					<p:commandLink>Ç</p:commandLink>
+					<p:commandLink>D</p:commandLink>
+					<p:commandLink>E</p:commandLink>
+					<p:commandLink>F</p:commandLink>
+					<p:commandLink>G</p:commandLink>
+					<p:commandLink>H</p:commandLink>
+					<p:commandLink>I</p:commandLink>
+					<p:commandLink>İ</p:commandLink>
+					<p:commandLink>J</p:commandLink>
+					<p:commandLink>K</p:commandLink>
+					<p:commandLink>L</p:commandLink>
+					<p:commandLink>M</p:commandLink>
+					<p:commandLink>N</p:commandLink>
+					<p:commandLink>O</p:commandLink>
+					<p:commandLink>Ö</p:commandLink>
+					<p:commandLink>P</p:commandLink>
+					<p:commandLink>Q</p:commandLink>
+					<p:commandLink>R</p:commandLink>
+					<p:commandLink>S</p:commandLink>
+					<p:commandLink>Ş</p:commandLink>
+					<p:commandLink>T</p:commandLink>
+					<p:commandLink>U</p:commandLink>
+					<p:commandLink>Ü</p:commandLink>
+					<p:commandLink>W</p:commandLink>
+					<p:commandLink>V</p:commandLink>
+					<p:commandLink>X</p:commandLink>
+					<p:commandLink>Y</p:commandLink>
+					<p:commandLink>Z</p:commandLink>
+				</div>		
 		
 	<div class="container">	
 	
 	<!-- header ve navbar templatelenecek -->
 		<section id="main-section">
 			<main id="main">
-				<p:dataTable var="show" value="#{showView.shows}" rows="10" scrollable="true" scrollHeight="600"
+				<p:dataTable id="data-show" var="show" value='#{showView.shows}' rows="10" scrollable="true" scrollHeight="600"
 				paginator="true" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 				currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
        			rowsPerPageTemplate="10,25,50,100,150">
@@ -103,7 +140,5 @@
 				</div>
 		</footer>
 	</h:form>
-	<script type="text/javascript">
-	</script>
 </body>
 </html>

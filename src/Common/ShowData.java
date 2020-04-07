@@ -10,7 +10,6 @@ import Models.Show;
 import NFAdminPages.DataAccess;
 
 @ManagedBean
-
 public class ShowData extends Show {
 	private String message;
 	public String addShow() throws ClassNotFoundException {

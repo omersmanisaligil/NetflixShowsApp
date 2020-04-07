@@ -5,6 +5,7 @@ public class Show {
 	private int show_id,releaseYear;	
 	private String type,title,director,cast,country,rating,duration,listedIn,desc;
 	
+	
 	public Show(String type, String title, String director, String cast, String country, int releaseYear,
 			String rating, String duration, String listedIn, String desc) {
 		this.type=type; this.title=title; this.director=director; this.cast=cast; this.country=country;

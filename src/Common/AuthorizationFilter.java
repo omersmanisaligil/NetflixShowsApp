@@ -1,6 +1,8 @@
 package Common;
 
 import java.io.IOException;
+
+import javax.faces.application.ResourceHandler;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -40,9 +42,16 @@ public class AuthorizationFilter implements Filter {
 				chain.doFilter(request, response);
 			else
 				resp.sendRedirect(reqt.getContextPath() + "/faces/login.xhtml");
+			 /*if(!reqt.getRequestURI().startsWith(reqt.getContextPath() + ResourceHandler.RESOURCE_IDENTIFIER))
+			 { 
+			  resp.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+			 resp.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+			 resp.setDateHeader("Expires", 0); // Proxies.
+			 }*/
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+		
 	}
 
 	@Override
