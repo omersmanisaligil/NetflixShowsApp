@@ -109,7 +109,7 @@ a{
 
 #main{
 	float:right;
-	width:89%;
+	width:80%;
 	box-sizing:border-box;
 }
 .bold-text{
@@ -118,14 +118,26 @@ a{
 #sidebar{
 	min-height:600px;
 	float:left;
-	min-width:10%;
+	min-width:19%;
 	box-sizing:border-box;
 	background-color: #313131;
+	font-size: 12px;
+	padding-left: 5px;
+	overflow: scroll;
+	height: 720px;
 	/*background-image: radial-gradient(circle, #2d3142, #353b4e, #3e465b, #475268, #4f5d75);*/
 }
 
 #sidebar .li{
 	float: left;
+}
+
+#sidebar .li:hover{
+	color: blue;
+}
+
+#sidebar .filter{
+	color: white;
 }
 
 .main-footer{
@@ -453,3 +465,4 @@ body .ui-datatable .ui-datatable-scrollable-header{
 	margin-bottom: 20px;
 	color: #313131;	
 }
+
