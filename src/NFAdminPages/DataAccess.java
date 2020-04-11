@@ -75,18 +75,24 @@ public class DataAccess {
 			Connection conn=DriverManager.getConnection(DbSettings.url,DbSettings.username,DbSettings.password);
 			String sql;
 			ResultSet rs;
-			if(key.equals(".")){
+			if(key.equals("")){
 				sql="SELECT * FROM NFBase.tblShows";
 				Statement  statement=conn.createStatement();
 				rs=statement.executeQuery(sql);
 			}
 			else {
+				if(key.length()>1) {
+					key="%"+key+"%";
+				}
+				else {
+					key=key+"%";
+				}
 				sql="SELECT * FROM tblShows WHERE title LIKE ?"; 
 				PreparedStatement preparedStatement=conn.prepareStatement(sql);
 				
-				preparedStatement.setString(1,key+"%"); 
-				rs=preparedStatement.executeQuery();
-			}
+				preparedStatement.setString(1,key); 
+				rs=preparedStatement.executeQuery();}
+			
 			
 			
 			while(rs.next()) {
@@ -292,7 +298,7 @@ public class DataAccess {
 		//test
 	    //getConnection();
 		//System.out.println(AddShow("asassa","asdfasda","asdsa","a,a,a,a","sdsada",1,"as","as","asd","asd"));
-		System.out.println(allShows("A"));
+		
 	}
 	/*public static List<Show> searchByChar(String c){
 		List<Show> resultList=new ArrayList<Show>();

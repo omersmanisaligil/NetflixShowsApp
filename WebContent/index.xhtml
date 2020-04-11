@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
 <meta charset="UTF-8"/>
 <title>Netflix Shows App</title>
@@ -13,12 +14,14 @@
  
 	<h:form>
 		<!-- <center> <h:graphicImage value="placeholder.jpg" height="100" width="1000"/></center>-->
+		<p:growl id="growl" life="2000"/>
 	<header class="head">
 					<a id="logo-link" href="index.jsf">
 						<h:graphicImage value="placeholder.jpg" height="100" width="100" class="left"/>
 					</a>
 				<div id="search-box">
-					<p:inputText placeholder="Search"/>
+					<p:commandButton value="Search" update="data-show growl" action="#{showView.tableCall}"></p:commandButton>
+					<p:inputText placeholder="Search" value="#{showView.key}"/>
 				</div>
 				<div id="user-pp">
 					<a href="user-profile.jsf">
@@ -37,43 +40,42 @@
 		
 		<div id="big-container">
 				<div id="container-nav" class="navbar">
-					<p:commandLink value="All"><p:ajax update="data-show" listener='#{showView.setKey(".")}'/></p:commandLink>
-					<p:commandLink value="A"><p:ajax update="data-show" listener='#{showView.tableCall("A")}'/></p:commandLink>
-					<p:commandLink value="B"><p:ajax update="data-show" listener='#{showView.tableCall("B")}'/></p:commandLink>
-					<p:commandLink value="C"><p:ajax update="data-show" listener='#{showView.tableCall("C")}'/></p:commandLink>
-					<p:commandLink value="Ç"><p:ajax update="data-show" listener='#{showView.tableCall("Ç")}'/></p:commandLink>
-					<p:commandLink value="D"><p:ajax update="data-show" listener='#{showView.tableCall("D")}'/></p:commandLink>
-					<p:commandLink value="E"><p:ajax update="data-show" listener='#{showView.tableCall("E")}'/></p:commandLink>
-					<p:commandLink value="F"><p:ajax update="data-show" listener='#{showView.tableCall("F")}'/></p:commandLink>
-					<p:commandLink value="G"><p:ajax update="data-show" listener='#{showView.tableCall("G")}'/></p:commandLink>
-					<p:commandLink value="H"><p:ajax update="data-show" listener='#{showView.tableCall("H")}'/></p:commandLink>
-					<p:commandLink value="I"><p:ajax update="data-show" listener='#{showView.tableCall("I")}'/></p:commandLink>
-					<p:commandLink value="İ"><p:ajax update="data-show" listener='#{showView.tableCall("İ")}'/></p:commandLink>
-					<p:commandLink value="J"><p:ajax update="data-show" listener='#{showView.tableCall("J")}'/></p:commandLink>
-					<p:commandLink value="K"><p:ajax update="data-show" listener='#{showView.tableCall("K")}'/></p:commandLink>
-					<p:commandLink value="L"><p:ajax update="data-show" listener='#{showView.tableCall("L")}'/></p:commandLink>
-					<p:commandLink value="M"><p:ajax update="data-show" listener='#{showView.tableCall("M")}'/></p:commandLink>
-					<p:commandLink value="N"><p:ajax update="data-show" listener='#{showView.tableCall("N")}'/></p:commandLink>
-					<p:commandLink value="O"><p:ajax update="data-show" listener='#{showView.tableCall("O")}'/></p:commandLink>
-					<p:commandLink value="Ö"><p:ajax update="data-show" listener='#{showView.tableCall("Ö")}'/></p:commandLink>
-					<p:commandLink value="P"><p:ajax update="data-show" listener='#{showView.tableCall("P")}'/></p:commandLink>
-					<p:commandLink value="Q"><p:ajax update="data-show" listener='#{showView.tableCall("Q")}'/></p:commandLink>
-					<p:commandLink value="R"><p:ajax update="data-show" listener='#{showView.tableCall("R")}'/></p:commandLink>
-					<p:commandLink value="S"><p:ajax update="data-show" listener='#{showView.tableCall("S")}'/></p:commandLink>
-					<p:commandLink value="Ş"><p:ajax update="data-show" listener='#{showView.tableCall("Ş")}'/></p:commandLink>
-					<p:commandLink value="T"><p:ajax update="data-show" listener='#{showView.tableCall("T")}'/></p:commandLink>
-					<p:commandLink value="U"><p:ajax update="data-show" listener='#{showView.tableCall("U")}'/></p:commandLink>
-					<p:commandLink value="Ü"><p:ajax update="data-show" listener='#{showView.tableCall("Ü")}'/></p:commandLink>
-					<p:commandLink value="V"><p:ajax update="data-show" listener='#{showView.tableCall("V")}'/></p:commandLink>
-					<p:commandLink value="W"><p:ajax update="data-show" listener='#{showView.tableCall("W")}'/></p:commandLink>
-					<p:commandLink value="X"><p:ajax update="data-show" listener='#{showView.tableCall("X")}'/></p:commandLink>
-					<p:commandLink value="Y"><p:ajax update="data-show" listener='#{showView.tableCall("Y")}'/></p:commandLink>
-					<p:commandLink value="Z"><p:ajax update="data-show" listener='#{showView.tableCall("Z")}'/></p:commandLink>
+					<p:commandLink value="All" update="data-show" action='#{showView.setKey("")}'/>
+					<p:commandLink value="A" update="data-show growl" action='#{showView.tableCall("A")}'/>
+					<p:commandLink value="B" update="data-show growl" action='#{showView.tableCall("B")}'/>
+					<p:commandLink value="C" update="data-show growl" action='#{showView.tableCall("C")}'/>
+					<p:commandLink value="Ç" update="data-show growl" action='#{showView.tableCall("Ç")}'/>
+					<p:commandLink value="D" update="data-show growl" action='#{showView.tableCall("D")}'/>
+					<p:commandLink value="E" update="data-show growl" action='#{showView.tableCall("E")}'/>
+					<p:commandLink value="F" update="data-show growl" action='#{showView.tableCall("F")}'/>
+					<p:commandLink value="G" update="data-show growl" action='#{showView.tableCall("G")}'/>
+					<p:commandLink value="H" update="data-show growl" action='#{showView.tableCall("H")}'/>
+					<p:commandLink value="I" update="data-show growl" action='#{showView.tableCall("I")}'/>
+					<p:commandLink value="İ" update="data-show growl" action='#{showView.tableCall("İ")}'/>
+					<p:commandLink value="J" update="data-show growl" action='#{showView.tableCall("J")}'/>
+					<p:commandLink value="K" update="data-show growl" action='#{showView.tableCall("K")}'/>
+					<p:commandLink value="L" update="data-show growl" action='#{showView.tableCall("L")}'/>
+					<p:commandLink value="M" update="data-show growl" action='#{showView.tableCall("M")}'/>
+					<p:commandLink value="N" update="data-show growl" action='#{showView.tableCall("N")}'/>
+					<p:commandLink value="O" update="data-show growl" action='#{showView.tableCall("O")}'/>
+					<p:commandLink value="Ö" update="data-show growl" action='#{showView.tableCall("Ö")}'/>
+					<p:commandLink value="P" update="data-show growl" action='#{showView.tableCall("P")}'/>
+					<p:commandLink value="Q" update="data-show growl" action='#{showView.tableCall("Q")}'/>
+					<p:commandLink value="R" update="data-show growl" action='#{showView.tableCall("R")}'/>
+					<p:commandLink value="S" update="data-show growl" action='#{showView.tableCall("S")}'/>
+					<p:commandLink value="Ş" update="data-show growl" action='#{showView.tableCall("Ş")}'/>
+					<p:commandLink value="T" update="data-show growl" action='#{showView.tableCall("T")}'/>
+					<p:commandLink value="U" update="data-show growl" action='#{showView.tableCall("U")}'/>
+					<p:commandLink value="Ü" update="data-show growl" action='#{showView.tableCall("Ü")}'/>
+					<p:commandLink value="V" update="data-show growl" action='#{showView.tableCall("V")}'/>
+					<p:commandLink value="W" update="data-show growl" action='#{showView.tableCall("W")}'/>
+					<p:commandLink value="X" update="data-show growl" action='#{showView.tableCall("X")}'/>
+					<p:commandLink value="Y" update="data-show growl" action='#{showView.tableCall("Y")}'/>
+					<p:commandLink value="Z" update="data-show growl" action='#{showView.tableCall("Z")}'/>
 				</div>		
 		
 	<div class="container">	
 	
-	<!-- header ve navbar templatelenecek -->
 		<section id="main-section">
 			<main id="main">
 				<p:dataTable id="data-show" var="show" value='#{showView.shows}' rows="10" scrollable="true" scrollHeight="600"
@@ -111,46 +113,10 @@
 			</main>
 			<aside id="sidebar">
 				
-				<ul id="listed-in"><!-- ne kadar kategori varsa o kadar eklememiz lazım,kategori listesi çekip -->
-					<li><h:commandLink value="Action and Adventure" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Classic Movies" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Comedies" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Dramas" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Music and Musicals" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="International Movies" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Cult Movies" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Children and Family" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Horror" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Thrillers" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Sci-Fi and Fantasy" styleClass="link-letter"></h:commandLink></li>	
-					<li><h:commandLink value="Romantic" styleClass="link-letter"></h:commandLink></li>			
-					<li><h:commandLink value="Documentaries" styleClass="link-letter"></h:commandLink></li>			
-					<li><h:commandLink value="LGBTQ Movies" styleClass="link-letter"></h:commandLink></li>			
-					<li><h:commandLink value="Stand-Up Comedy" styleClass="link-letter"></h:commandLink></li>	
-					<li><h:commandLink value="Sports" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Independant Movies" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Faith and Spirituality" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Anime Series" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Kids' TV" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Anime Features" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Movies" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Romantic TV Shows" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="TV Dramas" styleClass="link-letter"></h:commandLink></li>	
-					<li><h:commandLink value="TV Comedies" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Crime TV Shows" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="TV Mysteries" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Classic and Cult TV" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="TV Action and Adventure" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="TV Sci-Fi and Fantasy" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Cult TV" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="British TV Shows" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="TV Horror" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Reality TV" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Stand-Up Comedy and Talk Shows" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Docuseries" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Spanish-Language TV Shows" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Science and Nature TV" styleClass="link-letter"></h:commandLink></li>
-					<li><h:commandLink value="Korean TV Shows" styleClass="link-letter"></h:commandLink></li>	
+				<ul id="listed-in">
+					<ui:repeat var="c" value="#{showView.categories}">
+					<li><h:commandLink value="#{c}" update="data-show" action="#{showView.categoryCall(c)}"></h:commandLink></li>
+					</ui:repeat>
 							
 				</ul>
 			</aside>
