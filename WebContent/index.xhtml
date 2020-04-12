@@ -19,9 +19,9 @@
 					<a id="logo-link" href="index.jsf">
 						<h:graphicImage value="placeholder.jpg" height="100" width="100" class="left"/>
 					</a>
-				<div id="search-box">
-					<p:commandButton value="Search" update="data-show growl" action="#{showView.tableCall}"></p:commandButton>
-					<p:inputText placeholder="Search" value="#{showView.key}"/>
+				<div id="search-box">					
+					<p:inputText class="searchbox" placeholder="Search" value="#{showView.key}"/>		
+					<h:commandButton class="searchbtn"  update="data-show growl" action="#{showView.tableCall}"></h:commandButton>					
 				</div>
 				<div id="user-pp">
 					<a href="user-profile.jsf">
