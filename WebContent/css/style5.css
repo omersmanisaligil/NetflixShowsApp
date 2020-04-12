@@ -5,7 +5,8 @@
 }
 
 body {
-  background: #43423E;
+    background-image: url("http://starkovtattoo.spb.ru/images/200/DSC100224440.png");    
+    background-size: 100% 100%;
 }
 
 a {
@@ -72,15 +73,17 @@ a:hover {
 }
 
 .details {
-  padding-left: 150px;
+  padding-left: 250px;
+  width: 800px;
 }
 
 .details .title1 {
   color: #C4AF3D;
-  font-size: 44px;
+  font-size: 38px;
   margin-bottom: 13px;
-  position: relative;
-  padding-left: 200px;
+  position: relative;    
+  
+  
 }
 
 .details .title1 span {
@@ -100,6 +103,7 @@ a:hover {
   margin-bottom: 15px;
   padding-left: 150px;
   text-align: center;
+  padding-right: 50px;
 }
 
 

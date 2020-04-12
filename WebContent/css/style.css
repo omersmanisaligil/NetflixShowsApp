@@ -1,5 +1,7 @@
 body{
 	background-color:#bfc0c0;
+    background-image: url("http://starkovtattoo.spb.ru/images/200/DSC100224440.png");    
+	background-size: 100% 100%;
 	color:black;
 	font-family:Arial, Helvetica, sans-serif;
     font-size:16px;
@@ -37,7 +39,8 @@ a{
 
 .head{
 	background-color:#414141;
-	/*background-image: linear-gradient(to top, #2d3142, #353b4e, #3e465b, #475268, #4f5d75);*/
+	/* background-image: url("https://media.discordapp.net/attachments/632542585357074432/696323836546908210/photo-1537753646866-77d3ca60fc62.jpeg?width=840&height=560"); */
+	background-size: 100% 350px;
 	margin-bottom:0;
 	padding-bottom:0;
 	overflow:hidden;
@@ -52,7 +55,8 @@ a{
 }
 
 .head #search-box{
-	position:absolute;
+	text-align: center;
+	padding-top: 50px;
 	right:700px;
 	top: 60px;
 }
@@ -163,10 +167,11 @@ a{
 	
 }
 .main-footer #copyright{
-	position:absolute;
+	padding-top: 50px;
 	color:#f5f5f1;
 	bottom:10px;
 	right:750px;
+	text-align: center;
 }
 
 @media(max-width:600px){
@@ -458,11 +463,44 @@ body .ui-datatable .ui-datatable-scrollable-header{
 		}
 }
 
-.categories-title{
+.categories-title{	
 	padding-top: 40px;
 	text-align: center;
 	font-size: 40px;
 	margin-bottom: 20px;
-	color: #313131;	
+	color: white;	
+	text-decoration: underline;	
 }
 
+.searchbtn{
+	background-color:#414141;
+	color:#f5f5f1;
+	height:40px;
+	width:40px;
+	border: none;
+	border-radius:10px;
+	font-size:16px;
+	font-weight:bold;
+    margin-left: 5px;
+    background-image: url("https://image.flaticon.com/icons/svg/751/751463.svg");
+}
+
+.searchbtn:hover{
+	background-color: #2d4550;
+
+}
+
+.search-icon{
+	width: 30px;
+	height: auto;
+	padding-left: 86%;
+	padding-bottom: 50px;
+}
+
+.searchbox{
+	border-radius: 15px;
+	background-color: #2d4550;
+	color: white;
+	-webkit-transition: width 0.4s ease-in-out;
+	transition: width 0.4s ease-in-out;
+}
