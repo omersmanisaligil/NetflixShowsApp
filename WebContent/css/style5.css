@@ -28,7 +28,7 @@ a:hover {
   margin: 0 auto;
   width: 780px;
   height: 680px;
-  background: #313131;
+  background: #202135;
   border-radius: 5px;
   position: relative;
 
@@ -267,8 +267,13 @@ a[data-tooltip][data-placement="top"]::after {
 }
 
 .links{
-	text-align: center;
-	color: #C4AF3D;
-	font-size: 14px; 
+	text-align: center;	
+	font-size: 16px; 
+	text-decoration: underline;
+	color: #D27581;
 }
 
+
+a{
+	color: #D27581;
+}

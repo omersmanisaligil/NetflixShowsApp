@@ -24,7 +24,7 @@ a{
 }
 
 .button{
-	background-color:#414141;
+	background-color: #202135;
 	color:#f5f5f1;
 	height:40px;
 	width:100px;
@@ -38,7 +38,7 @@ a{
 	}
 
 .head{
-	background-color:#414141;
+	background-color: #202135;
 	/* background-image: url("https://media.discordapp.net/attachments/632542585357074432/696323836546908210/photo-1537753646866-77d3ca60fc62.jpeg?width=840&height=560"); */
 	background-size: 100% 350px;
 	margin-bottom:0;
@@ -124,7 +124,7 @@ a{
 	float:left;
 	min-width:19%;
 	box-sizing:border-box;
-	background-color: #313131;
+	background-color: #202135;
 	font-size: 12px;
 	padding-left: 5px;
 	overflow: scroll;
@@ -145,7 +145,7 @@ a{
 }
 
 .main-footer{
-	background-color: #313131;
+	background-color: #202135;
 	/*background-image: linear-gradient(to bottom, #2d3142, #353b4e, #3e465b, #475268, #4f5d75);*/
 	position:relative;
 	height:120px;
@@ -202,22 +202,22 @@ a{
 	color:#4e9a06;
 }
 .ui-datatable-scrollable-header{
-	background-color:#2d3142;
+	background-color: #202135;
 }
 .ui-datatable-scrollable-body{
-	background-color:#2d3142;
+	background-color: #202135;
 }
 .ui-datatable-header{
-	background-color:#2d3142;
+	background-color: #202135;
 }
 .ui-datatable-scrollable-header-box{
 	background-color:#2d3142;
 }
 .ui-widget-header .ui-datatable-scrollable-header{
-	background-color:#2d3142;	
+	background-color: #202135;	
 }
 .ui-paginator{
-	background-color:#2d3142;
+	background-color: #202135;
 	color:#f5f5f1;
 	}
 .ui-paginator-pages .ui-state-active{
@@ -305,24 +305,24 @@ a{
 
 
 body .ui-datatable thead th {
-	background-color: #313131 !important;	
+	background-color: #202135 !important;	
 	color: white !important;
 }
 
 body .ui-datatable .ui-datatable-data > tr > td {
-	background-color: #313131 !important;	
+	background-color: #202135 !important;	
 }
 
 body .ui-datatable .ui-paginator.ui-paginator-top {
-	background-color: #313131 !important;
+	background-color: #202135 !important;
 }
 
 body .ui-datatable .ui-paginator.ui-paginator-bottom {
-	background-color: #313131 !important;
+	background-color: #202135 !important;
 }
 
 body .ui-datatable .ui-datatable-scrollable-header{
-	background-color: #313131 !important;
+	background-color: #202135 !important;
 }
 
 
@@ -473,7 +473,7 @@ body .ui-datatable .ui-datatable-scrollable-header{
 }
 
 .searchbtn{
-	background-color:#414141;
+	background-color: #202135;
 	color:#f5f5f1;
 	height:40px;
 	width:40px;
@@ -499,7 +499,7 @@ body .ui-datatable .ui-datatable-scrollable-header{
 
 .searchbox{
 	border-radius: 15px;
-	background-color: #2d4550;
+	background-color: #CB728D;
 	color: white;
 	-webkit-transition: width 0.4s ease-in-out;
 	transition: width 0.4s ease-in-out;
