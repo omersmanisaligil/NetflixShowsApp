@@ -17,11 +17,11 @@
 		<p:growl id="growl" life="2000"/>
 	<header class="head">
 					<a id="logo-link" href="index.jsf">
-						<h:graphicImage value="placeholder.jpg" height="100" width="100" class="left"/>
+						<h:graphicImage value="resources/images/logo-2.png" height="130" width="130" class="left"/>
 					</a>
 				<div id="search-box">					
 					<p:inputText class="searchbox" placeholder="Search" value="#{showView.key}"/>		
-					<p:commandButton value="" class="searchbtn"  update="data-show growl" action="#{showView.tableCall}"></p:commandButton>					
+					<h:commandButton class="searchbtn"  update="data-show growl" action="#{showView.tableCall}"></h:commandButton>					
 				</div>
 				<div id="user-pp">
 					<a href="user-profile.jsf">
@@ -170,7 +170,7 @@
 	
 	<footer class="main-footer">
 	
-			<h:graphicImage value="placeholder.jpg" height="100" width="100" class="left"/>
+			<h:graphicImage value="resources/images/logo-2.png" height="100" width="130" class="left"/>
 			<p id="copyright">Copyright NetflixShowsApp© 2020 </p>
 			<div id="info-contact">	
 				<ul>
