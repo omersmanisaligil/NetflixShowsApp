@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+<meta charset="UTF-8"/>
+<title>Netflix Shows App</title>
+<link  rel="stylesheet" type="text/css" href="css/style.css"/> 
+</h:head>
+<body> 
+
+ 
+	<h:form>
+		<!-- <center> <h:graphicImage value="placeholder.jpg" height="100" width="1000"/></center>-->
+		<p:growl id="growl" life="2000"/>
+	<header class="head">
+					<a id="logo-link" href="index.jsf">
+						<h:graphicImage value="resources/images/logo-2.png" height="130" width="130" class="left"/>
+					</a>
+				<div id="search-box">					
+					<p:inputText class="searchbox" placeholder="Search" value="#{showView.key}"/>		
+					<h:commandButton class="searchbtn"  update="data-show growl" action="#{showView.tableCall}"></h:commandButton>					
+				</div>
+				<div id="user-pp">
+					<a href="user-profile.jsf">
+						<h:graphicImage height="75" width="75" value="resources/images/pp_placeholder.jpeg" rendered="#{!userData.loggedIn}"/>
+					</a>
+				</div>
+				<div id="userArea">
+					<h:commandButton id="btnsignup" styleClass="button" value="Sign Up" action="#{userData.btnS}" rendered="#{userData.loggedIn}"/>
+					<h:commandButton id="btnlogin" styleClass="button" value="Log In" action="#{userData.btnL}" rendered="#{userData.loggedIn}"/>
+					<h:commandButton id="btnLogout" styleClass="button" value="Log Out" action="#{userData.logout}" rendered="#{!userData.loggedIn}"/>
+					<h:commandButton id="myProfile" styleClass="button" value="My Profile" action="#{userData.toProfile}" rendered="#{!userData.loggedIn}"/>
+					<h:outputText rendered="#{!userData.loggedIn}" id="welcome">Welcome #{userData.username}</h:outputText>
+				</div>
+			</header>
+			
+		
+		<div id="big-container">
+				<div id="container-nav" class="navbar">
+					<p:commandLink value="All" update="data-show" action='#{showView.setKey("")}'/>
+					<p:commandLink value="A" update="data-show growl" action='#{showView.tableCall("A")}'/>
+					<p:commandLink value="B" update="data-show growl" action='#{showView.tableCall("B")}'/>
+					<p:commandLink value="C" update="data-show growl" action='#{showView.tableCall("C")}'/>
+					<p:commandLink value="Ç" update="data-show growl" action='#{showView.tableCall("Ç")}'/>
+					<p:commandLink value="D" update="data-show growl" action='#{showView.tableCall("D")}'/>
+					<p:commandLink value="E" update="data-show growl" action='#{showView.tableCall("E")}'/>
+					<p:commandLink value="F" update="data-show growl" action='#{showView.tableCall("F")}'/>
+					<p:commandLink value="G" update="data-show growl" action='#{showView.tableCall("G")}'/>
+					<p:commandLink value="H" update="data-show growl" action='#{showView.tableCall("H")}'/>
+					<p:commandLink value="I" update="data-show growl" action='#{showView.tableCall("I")}'/>
+					<p:commandLink value="İ" update="data-show growl" action='#{showView.tableCall("İ")}'/>
+					<p:commandLink value="J" update="data-show growl" action='#{showView.tableCall("J")}'/>
+					<p:commandLink value="K" update="data-show growl" action='#{showView.tableCall("K")}'/>
+					<p:commandLink value="L" update="data-show growl" action='#{showView.tableCall("L")}'/>
+					<p:commandLink value="M" update="data-show growl" action='#{showView.tableCall("M")}'/>
+					<p:commandLink value="N" update="data-show growl" action='#{showView.tableCall("N")}'/>
+					<p:commandLink value="O" update="data-show growl" action='#{showView.tableCall("O")}'/>
+					<p:commandLink value="Ö" update="data-show growl" action='#{showView.tableCall("Ö")}'/>
+					<p:commandLink value="P" update="data-show growl" action='#{showView.tableCall("P")}'/>
+					<p:commandLink value="Q" update="data-show growl" action='#{showView.tableCall("Q")}'/>
+					<p:commandLink value="R" update="data-show growl" action='#{showView.tableCall("R")}'/>
+					<p:commandLink value="S" update="data-show growl" action='#{showView.tableCall("S")}'/>
+					<p:commandLink value="Ş" update="data-show growl" action='#{showView.tableCall("Ş")}'/>
+					<p:commandLink value="T" update="data-show growl" action='#{showView.tableCall("T")}'/>
+					<p:commandLink value="U" update="data-show growl" action='#{showView.tableCall("U")}'/>
+					<p:commandLink value="Ü" update="data-show growl" action='#{showView.tableCall("Ü")}'/>
+					<p:commandLink value="V" update="data-show growl" action='#{showView.tableCall("V")}'/>
+					<p:commandLink value="W" update="data-show growl" action='#{showView.tableCall("W")}'/>
+					<p:commandLink value="X" update="data-show growl" action='#{showView.tableCall("X")}'/>
+					<p:commandLink value="Y" update="data-show growl" action='#{showView.tableCall("Y")}'/>
+					<p:commandLink value="Z" update="data-show growl" action='#{showView.tableCall("Z")}'/>
+				</div>		
+		
+	<div class="container">	
+	
+		<section id="main-section">
+			<main id="main">
+				<p:dataTable id="data-show" var="show" value='#{showView.shows}' rows="10" scrollable="true" scrollHeight="600"
+				paginator="true" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+       			rowsPerPageTemplate="10,25,50,100,150">
+        	<p:column><h:graphicImage value="placeholder.jpg" height="300" width="300"/></p:column>        
+			<p:column headerText="Show Info"><h:panelGrid columns="2">
+			
+			<h:outputText value="#{show.type}"/>        
+         	<h:outputText value="#{show.title}"/>
+         	<h:outputText value="#{show.director}" />      
+         	<h:outputText value="#{show.cast}" />
+         	<h:outputText value="#{show.country}" />       
+         	<h:outputText value="#{show.releaseYear}" />       
+         	<h:outputText value="#{show.rating}" />       
+         	<h:outputText value="#{show.duration}" />        
+         	<h:outputText value="#{show.listedIn}" />        
+         	<h:outputText value="#{show.desc}" />     
+         	<h:commandLink value="Edit" action="#{showData.editShow(show.show_id)}"/>
+         	<h:commandLink value="See More..." action="#{showData.showPage(show.show_id)}"/>
+			</h:panelGrid></p:column>
+			<!--<p:column headerText="Type"><h:outputText value="#{show.type}" /></p:column>        
+         	<p:column headerText="Title"><h:outputText value="#{show.title}" /></p:column>        
+         	<p:column headerText="Director"><h:outputText value="#{show.director}" /></p:column>        
+         	<p:column headerText="Cast"><h:outputText value="#{show.cast}" /></p:column>        
+         	<p:column headerText="Country"><h:outputText value="#{show.country}" /></p:column>        
+         	<p:column headerText="Release Year"><h:outputText value="#{show.releaseYear}" /></p:column>        
+         	<p:column headerText="Rating"><h:outputText value="#{show.rating}" /></p:column>        
+         	<p:column headerText="Duration"><h:outputText value="#{show.duration}" /></p:column>        
+         	<p:column headerText="Listed In"><h:outputText value="#{show.listedIn}" /></p:column>        
+         	<p:column headerText="Description"><h:outputText value="#{show.desc}" /></p:column>     
+         	<p:column headerText=""><h:commandLink value="Edit" action="#{showData.editShow(show.show_id)}"/></p:column>-->
+      		</p:dataTable>
+			</main>
+			<aside id="sidebar">
+				
+				<ul id="listed-in">
+					<ui:repeat var="c" value="#{showView.categories}">
+					<li><h:commandLink value="#{c}" update="data-show" action="#{showView.categoryCall(c)}"></h:commandLink></li>
+					</ui:repeat>
+							
+				</ul>
+			</aside>
+		</section>	
+	</div><!-- container -->
+	
+	<div class="container-boxes">
+	
+		<div class="categories-title">POPULAR CATEGORIES</div>
+		<div class="wrap">
+			
+			<div class="box one">						
+				<a href="user-profile.jsf">COMEDIES</a>	
+			</div>
+			
+			<div class="box two">		
+				<a href="user-profile.jsf">ACTION AND ADVENTURE</a>			
+			</div>
+			
+			<div class="box three">		
+				<a href="user-profile.jsf">CHILDREN AND FAMILY MOVIES</a>		
+			</div>
+			
+			<div class="box five">		
+				<a href="user-profile.jsf">CRIME TV SHOWS</a>			
+			</div>
+			
+			<div class="box six">		
+				<a href="user-profile.jsf">DRAMAS</a><!--  dramas and TV dramas -->
+			</div>
+			
+			<div class="box seven">		
+				<a href="user-profile.jsf">DOCUMENTARIES</a><!--  documentaries and docuseries -->
+			</div>
+			
+			<div class="box eight">		
+				<a href="user-profile.jsf">KIDS' TV</a>			
+			</div>
+			
+			<div class="box nine">		
+				<a href="user-profile.jsf">REALITY TV</a>			
+			</div>
+			
+			<div class="box ten">		
+				<a href="user-profile.jsf">ANIME SERIES</a>			
+			</div>
+			
+		</div>
+</div> <!--  end of container boxes -->
+	</div>
+	
+	<footer class="main-footer">
+	
+			<h:graphicImage value="resources/images/logo-2.png" height="100" width="130" class="left"/>
+			<p id="copyright">Copyright NetflixShowsApp© 2020 </p>
+			<div id="info-contact">	
+				<ul>
+					<li><h:commandLink value="Info"/></li> 
+					<li><h:commandLink value="Contact"/></li>
+				</ul>
+				</div>
+				
+				 
+		</footer>
+	</h:form>
+</body>
+</html>
