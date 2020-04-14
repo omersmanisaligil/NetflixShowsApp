@@ -54,6 +54,10 @@ a{
 	top:20px;
 }
 
+.head #logo-link{
+	padding-bottom: 150px;
+}
+
 .head #search-box{
 	text-align: center;
 	padding-top: 50px;

@@ -47,7 +47,7 @@ a{
 .head img{
 	position:absolute;
 	left:60px;
-	top:20px;
+	top:20px;	
 }
 
 .head #search-box{
@@ -345,7 +345,7 @@ body .ui-datatable .ui-paginator.ui-paginator-top {
     height: 480px;
     position: relative;
     margin: 6% auto;
-    background: #313131;
+    background: #202135;
     padding: 5px;
     overflow: hidden;
 }
@@ -426,7 +426,7 @@ body .ui-datatable .ui-paginator.ui-paginator-top {
     cursor: pointer;
     display: block;        
     margin-top: 20px;    
-    background-color: #004445;
+    background-color: #CB728D;
     border: 0;
     outline: none;
     border-radius: 30px;
