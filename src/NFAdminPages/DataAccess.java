@@ -250,17 +250,18 @@ public class DataAccess {
 		
 	}
 	
-	public static boolean AddUser(String username,String password,String email) {
+	public static boolean AddUser(String username,String password,String email,boolean isAdmin) {
 			try {
 				Class.forName(DbSettings.driver);
 				Connection conn=DriverManager.getConnection(DbSettings.url,DbSettings.username,DbSettings.password);
-				String add="INSERT INTO tblUsers(username,password,email) VALUES(?,?,?)";
+				String add="INSERT INTO tblUsers(username,password,email,isAdmin) VALUES(?,?,?,?)";
 				
 				PreparedStatement statement=conn.prepareStatement(add);
 				
 				statement.setString(1, username);
 				statement.setString(2, password);
 				statement.setString(3, email);
+				statement.setBoolean(4, isAdmin);
 				
 				statement.executeUpdate();
 				conn.close();

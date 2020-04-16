@@ -41,7 +41,10 @@ public class AuthorizationFilter implements Filter {
 					|| reqURI.contains("javax.faces.resource"))
 				chain.doFilter(request, response);
 			else
-				resp.sendRedirect(reqt.getContextPath() + "/faces/login.xhtml");
+				resp.sendRedirect(reqt.getContextPath() + "/login.xhtml");
+			/*if(reqURI.contains("/admin/")) {
+				resp.sendRedirect(reqt.getContextPath()+"/login.xhtml");
+			}*/
 			 /*if(!reqt.getRequestURI().startsWith(reqt.getContextPath() + ResourceHandler.RESOURCE_IDENTIFIER))
 			 { 
 			  resp.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.

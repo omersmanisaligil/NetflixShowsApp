@@ -17,7 +17,7 @@ import NFAdminPages.DataAccess;
 @SessionScoped
 public class UserData extends User implements Serializable{
 	private boolean loggedIn=true;
-	private String rank="Member";
+	//private boolean isAdmin=false;
 	public String btnS() {
 		return "signup";
 	}
@@ -25,7 +25,7 @@ public class UserData extends User implements Serializable{
 		return "login";
 	}
 	public String signUp(){
-		if(DataAccess.AddUser(getUsername(),getPassword(),getEmail())){//profilepic, isAdmin
+		if(DataAccess.AddUser(getUsername(),getPassword(),getEmail(),isAdmin())){//profilepic, isAdmin
 			return "index"; 
 		}
 		else {
@@ -36,12 +36,13 @@ public class UserData extends User implements Serializable{
 		return super.getUsername();
 	}
 	
-	public String getRank() {
-		return rank;
+	/*public boolean isAdmin() {
+		return isAdmin();
 	}
-	public void setRank(String rank) {
-		this.rank = rank;
-	}
+	/*public void setAdmin(boolean admin) {
+		this.isAdmin=admin;
+	}*/
+	
 	public boolean isLoggedIn() {
 		return loggedIn;
 	}
@@ -56,13 +57,19 @@ public class UserData extends User implements Serializable{
 		if (valid) {
 			HttpSession session = Common.SessionUtils.getSession();
 			session.setAttribute("username", getUsername());
+			
+			if(getUsername().equals("NFAdmin"))
+				session.setAttribute("isAdmin", true);
+			else
+				session.setAttribute("isAdmin", false);
+			
 			setLoggedIn(false);
 			return "index";
 		} else {
 			FacesContext.getCurrentInstance().addMessage(
 					null,
 					new FacesMessage(FacesMessage.SEVERITY_WARN,
-							"Incorrect Username and Passowrd",
+							"Incorrect Username and Password",
 							"Please enter correct username and Password"));
 			return "login";
 		}
@@ -74,6 +81,23 @@ public class UserData extends User implements Serializable{
 		setLoggedIn(true);
 		return "login";
 	}
+	public boolean listener(){
+		HttpSession session=SessionUtils.getSession();
+		return (boolean) session.getAttribute("isAdmin");
+	}
+	public void verifyLogin() {
+		if(this.loggedIn)
+			doRedirect("login.jsf");
+	}
+	private void doRedirect(String url) {
+		try {
+			FacesContext fc=FacesContext.getCurrentInstance();
+			fc.getExternalContext().redirect(url);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 }
 
 

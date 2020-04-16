@@ -8,7 +8,7 @@
 <title>Search Shows</title>
 </h:head>
 <body>
-	<h:form>
+	<h:form rendered="#{isAdmin}">
 	<p:sidebar widgetVar="searchBar" position="left" baseZIndex="10000">
     <h1 style="font-weight:normal">Search Bar</h1>
 	    <h:panelGrid columns="2">
@@ -94,5 +94,8 @@
 	<h:commandButton value="Back to panel" action="#{adminBean.panel}"/>
 		
 </h:form>
+<h:form rendered="#{!isAdmin}">
+		<h:commandLink>you do not have access to this page.</h:commandLink>
+	</h:form>
 </body>
 </html>

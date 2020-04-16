@@ -33,7 +33,7 @@
 					<h:commandButton id="btnlogin" styleClass="button" value="Log In" action="#{userData.btnL}" rendered="#{userData.loggedIn}"/>
 					<h:commandButton id="btnLogout" styleClass="button" value="Log Out" action="#{userData.logout}" rendered="#{!userData.loggedIn}"/>
 					<h:commandButton id="myProfile" styleClass="button" value="My Profile" action="#{userData.toProfile}" rendered="#{!userData.loggedIn}"/>
-					<h:outputText rendered="#{!userData.loggedIn}" id="welcome">Welcome #{userData.username}</h:outputText>
+					<h:outputText rendered="#{!userData.loggedIn}" id="welcome">Welcome #{username}</h:outputText>
 				</div>
 			</header>
 			

@@ -3,13 +3,13 @@ package Models;
 public class User {
 	private int user_id;
 	private String username,profilePic,password,email;
-	private boolean isAdmin;
+	private boolean isAdmin=false;
 	
 	public User(String username,String password, String email) {
 		this.username=username; this.password=password;	this.email=email;
 	}
-	public User(int user_id,String username,String password, String email) {
-		this.user_id=user_id; this.username=username; this.password=password; this.email=email;
+	public User(int user_id,String username,String password, String email,boolean isAdmin) {
+		this.user_id=user_id; this.username=username; this.password=password; this.email=email; this.isAdmin=isAdmin;
 	}
 	public User() {
 		
@@ -47,5 +47,8 @@ public class User {
 	public boolean isAdmin() {
 		return isAdmin;
 	}
-
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
+	
 }
