@@ -127,40 +127,58 @@
 		<div class="categories-title">POPULAR CATEGORIES</div>
 		<div class="wrap">
 			
-			<div class="box one">						
-				<a href="user-profile.jsf">COMEDIES</a>	
+			<div class="box one">	
+				<ui:repeat var="g" value="Comedies">
+				<h:commandLink value="#{g}" update="data-show" action="#{showView.categoryCall(g)}"></h:commandLink>
+				</ui:repeat>
 			</div>
 			
 			<div class="box two">		
-				<a href="user-profile.jsf">ACTION AND ADVENTURE</a>			
+				<ui:repeat var="g" value="Action &amp; Adventure">
+				<h:commandLink value="#{g}" update="data-show" action="#{showView.categoryCall(g)}"></h:commandLink>
+				</ui:repeat>		
 			</div>
 			
 			<div class="box three">		
-				<a href="user-profile.jsf">CHILDREN AND FAMILY MOVIES</a>		
+				<ui:repeat var="g" value="Children &amp; Family Movies">
+				<h:commandLink value="#{g}" update="data-show" action="#{showView.categoryCall(g)}"></h:commandLink>
+				</ui:repeat>		
 			</div>
 			
 			<div class="box five">		
-				<a href="user-profile.jsf">CRIME TV SHOWS</a>			
+				<ui:repeat var="g" value="Crime TV Shows">
+				<h:commandLink value="#{g}" update="data-show" action="#{showView.categoryCall(g)}"></h:commandLink>
+				</ui:repeat>			
 			</div>
 			
 			<div class="box six">		
-				<a href="user-profile.jsf">DRAMAS</a><!--  dramas and TV dramas -->
+				<ui:repeat var="g" value="Dramas">
+				<h:commandLink value="#{g}" update="data-show" action="#{showView.categoryCall(g)}"></h:commandLink>
+				</ui:repeat>
 			</div>
 			
 			<div class="box seven">		
-				<a href="user-profile.jsf">DOCUMENTARIES</a><!--  documentaries and docuseries -->
+				<ui:repeat var="g" value="Documentaries">
+				<h:commandLink value="#{g}" update="data-show" action="#{showView.categoryCall(g)}"></h:commandLink>
+				</ui:repeat>
 			</div>
 			
 			<div class="box eight">		
-				<a href="user-profile.jsf">KIDS' TV</a>			
+				<ui:repeat var="g" value="Kids' TV">
+				<h:commandLink value="#{g}" update="data-show" action="#{showView.categoryCall(g)}"></h:commandLink>
+				</ui:repeat>			
 			</div>
 			
 			<div class="box nine">		
-				<a href="user-profile.jsf">REALITY TV</a>			
+				<ui:repeat var="g" value="Reality TV">
+				<h:commandLink value="#{g}" update="data-show" action="#{showView.categoryCall(g)}"></h:commandLink>
+				</ui:repeat>		
 			</div>
 			
 			<div class="box ten">		
-				<a href="user-profile.jsf">ANIME SERIES</a>			
+				<ui:repeat var="g" value="Anime Series">
+				<h:commandLink value="#{g}" update="data-show" action="#{showView.categoryCall(g)}"></h:commandLink>
+				</ui:repeat>			
 			</div>
 			
 		</div>
