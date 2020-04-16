@@ -40,7 +40,7 @@
 		
 		<div id="big-container">
 				<div id="container-nav" class="navbar">
-					<p:commandLink value="All" update="data-show" action='#{showView.setKey("")}'/>
+					<p:commandLink value="All" update="data-show" action='#{showView.tableCall("")}'/>
 					<p:commandLink value="A" update="data-show growl" action='#{showView.tableCall("A")}'/>
 					<p:commandLink value="B" update="data-show growl" action='#{showView.tableCall("B")}'/>
 					<p:commandLink value="C" update="data-show growl" action='#{showView.tableCall("C")}'/>
@@ -78,7 +78,7 @@
 	
 		<section id="main-section">
 			<main id="main">
-				<p:dataTable id="data-show" var="show" value='#{showView.shows}' rows="10" scrollable="true" scrollHeight="600"
+				<p:dataTable id="data-show" var="show" value='#{showView.allShows}' rows="10" scrollable="true" scrollHeight="600"
 				paginator="true" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 				currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
        			rowsPerPageTemplate="10,25,50,100,150">
@@ -112,13 +112,12 @@
       		</p:dataTable>
 			</main>
 			<aside id="sidebar">
-				
 				<ul id="listed-in">
 					<ui:repeat var="c" value="#{showView.categories}">
 					<li><h:commandLink value="#{c}" update="data-show" action="#{showView.categoryCall(c)}"></h:commandLink></li>
 					</ui:repeat>
 							
-				</ul>
+				</ul>	
 			</aside>
 		</section>	
 	</div><!-- container -->

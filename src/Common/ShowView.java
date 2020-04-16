@@ -19,15 +19,15 @@ import NFAdminPages.DataAccess;
 @ManagedBean
 @ViewScoped
 public class ShowView extends Show implements Serializable {
-	private List<Show> allShows;
+	private List<Show> allShows=DataAccess.allShows("");
 	private List<Show> searchResults=new ArrayList<Show>();
 	private String key="";
 	private String category;
-	private List<String> categories=new ArrayList<String>(Arrays.asList("Action and Adventure","Classic Movies","Comedies","Dramas","Music and Musicals","International Movies",
-			"Cult Movies","Children and Family","Horror","Thrillers","Sci-Fi and Fantasy","Romantic","Documentaries","LBGTQ Movies","Stand-Up Comedy","Sports","Independent Movies","Faith and Spirituality"
+	private List<String> categories=new ArrayList<String>(Arrays.asList("Action & Adventure","Classic Movies","Comedies","Dramas","Music & Musicals","International Movies",
+			"Cult Movies","Children & Family","Horror","Thrillers","Sci-Fi & Fantasy","Romantic","Documentaries","LBGTQ Movies","Stand-Up Comedy","Sports","Independent Movies","Faith & Spirituality"
 			,"Anime Series","Kids' TV","Anime Features","Movies","Romantic TV Shows","TV Dramas","TV Comedies",
-			"Crime TV Shows","TV Mysteries","Classic and Cult TV","TV Horror","Reality  TV","Stand-Up Comedy and Talk Shows","Docuseries"
-			,"Spanish-Language TV Shows","Science and Nature TV","Korean TV Shows"));	
+			"Crime TV Shows","TV Mysteries","Classic & Cult TV","TV Horror","Reality  TV","Stand-Up Comedy & Talk Shows","Docuseries"
+			,"Spanish-Language TV Shows","Science & Nature TV","Korean TV Shows"));	
 	private String message;
 	
 	public String getMessage() {
@@ -59,10 +59,11 @@ public class ShowView extends Show implements Serializable {
 	}
 	public String categoryCall(String cat) {
 		setCategory(cat);
+		setAllShows(DataAccess.categorized(cat));
 		return null;
 	}
 	public String tableCall(String in) {
-		setKey(in);
+		setAllShows(DataAccess.allShows(in));
 		addMessage(in);
 		return null;
 	}
@@ -82,10 +83,10 @@ public class ShowView extends Show implements Serializable {
 	public void setKey(String key) {
 		this.key = key;
 	}
-	public List<Show> getShows(){
+	/*public List<Show> getShows(){
 		allShows=DataAccess.allShows(key);
 		return allShows;
-	}
+	}*/
 	public String searchAction(){
 		searchResults=DataAccess.searchShows(getType(),getTitle(),getDirector(),getCast(),getCountry(),getReleaseYear(),getRating(),getDuration(),getListedIn(),getDesc());
 		return null;

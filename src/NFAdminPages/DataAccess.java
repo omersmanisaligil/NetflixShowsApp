@@ -67,7 +67,30 @@ public class DataAccess {
 		}
 		
 	}
-	
+	public static List<Show> categorized(String cat){
+		List<Show> categorized=new ArrayList<Show>();
+		
+		try {
+			Class.forName(DbSettings.driver);
+			Connection conn=DriverManager.getConnection(DbSettings.url,DbSettings.username,DbSettings.password);
+			cat="%"+cat+"%";
+			String sql="SELECT * FROM tblShows WHERE listed_in LIKE ?";
+			PreparedStatement preparedStatement=conn.prepareStatement(sql);
+			
+			preparedStatement.setString(1,cat);
+			ResultSet rs=preparedStatement.executeQuery();
+			
+			while(rs.next()) {
+				categorized.add(new Show(rs.getInt("show_id"),rs.getString("type"),rs.getString("title"),rs.getString("director"),rs.getString("cast"),
+						rs.getString("country"),rs.getInt("release_year"),rs.getString("rating"),rs.getString("duration"),
+						rs.getString("listed_in"),rs.getString("description")));
+			}
+			conn.close();
+		}catch(SQLException|ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return categorized;
+	}
 	public static List<Show> allShows(String key){
 		List<Show> allShows=new ArrayList<Show>();
 		try {
