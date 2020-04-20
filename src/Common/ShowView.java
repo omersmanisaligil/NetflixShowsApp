@@ -67,6 +67,10 @@ public class ShowView extends Show implements Serializable {
 		addMessage(in);
 		return null;
 	}
+	public String searchCall() {
+		setAllShows(DataAccess.allShows(key));
+		return null;
+	}
 	public void addMessage(String str) {
 		FacesMessage message;
 		if(str.length()>1) {

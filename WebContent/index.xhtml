@@ -20,8 +20,8 @@
 						<h:graphicImage value="resources/images/logo-2.png" height="130" width="130" class="left"/>
 					</a>
 				<div id="search-box">					
-					<p:inputText class="searchbox" placeholder="Search" value="#{showView.key}"/>		
-					<h:commandButton class="searchbtn"  update="data-show growl" action="#{showView.tableCall}"></h:commandButton>					
+					<p:inputText id="search" class="searchbox" placeholder="Search" value="#{showView.key}"/>		
+					<h:commandButton class="searchbtn"  update="data-show growl" action='#{showView.searchCall}'></h:commandButton>					
 				</div>
 				<div id="user-pp">
 					<a href="user-profile.jsf">
