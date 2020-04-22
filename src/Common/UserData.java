@@ -35,7 +35,9 @@ public class UserData extends User implements Serializable{
 	public String getUsername() {
 		return super.getUsername();
 	}
-	
+	public int getUserId() {
+		return SessionUtils.getUserId();
+	}
 	/*public boolean isAdmin() {
 		return isAdmin();
 	}
@@ -56,13 +58,11 @@ public class UserData extends User implements Serializable{
 		boolean valid=DataAccess.validate(getUsername(),getPassword());
 		if (valid) {
 			HttpSession session = Common.SessionUtils.getSession();
-			session.setAttribute("username", getUsername());
-			
-			if(getUsername().equals("NFAdmin"))
-				session.setAttribute("isAdmin", true);
-			else
-				session.setAttribute("isAdmin", false);
-			
+			User u=DataAccess.LoginUser(getUsername(), getPassword());
+			session.setAttribute("user",u);//bunun üstünden çekemiyorum ayrı ayrı kaydetmem gerekiyor neden?
+			session.setAttribute("user_id",u.getUser_id());
+			session.setAttribute("username",u.getUsername());
+			session.setAttribute("isAdmin", (boolean)u.isAdmin());
 			setLoggedIn(false);
 			return "index";
 		} else {
@@ -73,6 +73,11 @@ public class UserData extends User implements Serializable{
 							"Please enter correct username and Password"));
 			return "login";
 		}
+	}
+	public String addFav(int show_id) {
+		DataAccess.addFavorite(getUserId(), show_id);
+		
+		return "index";
 	}
 
 	public String logout() {

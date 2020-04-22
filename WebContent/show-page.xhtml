@@ -9,7 +9,7 @@
 	<title>Show Details - #{showData.title}</title>
 </h:head>
  <body>
- 
+	<h:form>
  
  	
  	<div class="movie-card">
@@ -19,7 +19,8 @@
     
     <a href="#"><h:graphicImage value="placeholder.jpg" 
     alt="cover" class="cover" /></a>
-        
+    <h:commandButton value="Add to favorites" rendered="false" action='#{userData.addFav}'>
+    </h:commandButton>
     <div class="hero">
             
       <div class="details">
@@ -66,7 +67,7 @@
 </div> <!-- end movie-card -->
  
  
- 
+ 	</h:form>
  
  
  </body>

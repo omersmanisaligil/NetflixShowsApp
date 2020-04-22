@@ -30,5 +30,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="/home/omersmanisaligil/eclipseide-workspace/NetflixShowsApp/WebContent/WEB-INF/lib/mysql-connector-java-5.1.48.jar"/>
+	<classpathentry kind="lib" path="/home/omersmanisaligil/eclipseide-workspace/NetflixShowsApp/WebContent/WEB-INF/lib/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="/home/omersmanisaligil/eclipseide-workspace/NetflixShowsApp/WebContent/WEB-INF/lib/jsp-api-2.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

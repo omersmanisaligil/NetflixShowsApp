@@ -19,5 +19,6 @@ public class AdminBean {
 	public String panel() {
 		return "adminpanel";
 	}
+
 }
 

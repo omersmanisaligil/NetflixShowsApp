@@ -67,6 +67,27 @@ public class DataAccess {
 		}
 		
 	}
+	public static boolean addFavorite(int user_id,int show_id) {
+		try {
+			Class.forName(DbSettings.driver);
+			Connection conn=DriverManager.getConnection(DbSettings.url,DbSettings.username,DbSettings.password);
+			
+			String addfav="INSERT INTO tblFavorites(user_id,show_id) values(?,?)";
+			
+			PreparedStatement statement=conn.prepareStatement(addfav);
+			
+			statement.setInt(1, user_id);
+			statement.setInt(2, show_id);
+			
+			statement.executeUpdate();
+			
+			conn.close();
+			return true;
+		}catch(SQLException|ClassNotFoundException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 	public static List<Show> categorized(String cat){
 		List<Show> categorized=new ArrayList<Show>();
 		
@@ -273,29 +294,32 @@ public class DataAccess {
 				return false;
 			}
 	}	
-	public static boolean LoginUser(String username,String password) {
+	public static User LoginUser(String username,String password) {
+			User u;
 			try {
 				Class.forName(DbSettings.driver);
 				Connection conn=DriverManager.getConnection(DbSettings.url,DbSettings.username,DbSettings.password);
 				
-				String query="SELECT username,password FROM tblUsers WHERE username=? and password=?";
+				String query="SELECT user_id,username,password,email,isAdmin FROM tblUsers WHERE username=? and password=?";
 				PreparedStatement statement=conn.prepareStatement(query);
 				
 				statement.setString(1, username);
 				statement.setString(2,password);
 				
-				statement.executeQuery();
+				ResultSet rs=statement.executeQuery();
+				rs.next();
 				
+				u=new User(rs.getInt("user_id"),rs.getString("username"),rs.getString("password"),rs.getString("email"),rs.getBoolean("isAdmin"));
 				
 				conn.close();
-				return true;
+				return u;
 			}catch(SQLException | ClassNotFoundException e) {
 				e.printStackTrace();
-				return false;
+				return null;
 			}
 	}
 	public static boolean validate(String username,String password) {
-		Connection conn=null;
+		Connection conn;
 		try {
 			Class.forName(DbSettings.driver);
 			conn=DriverManager.getConnection(DbSettings.url,DbSettings.username,DbSettings.password);

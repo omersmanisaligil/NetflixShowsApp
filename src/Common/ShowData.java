@@ -6,6 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 
+import Common.UserData;
 import Models.Show;
 import NFAdminPages.DataAccess;
 
@@ -42,8 +43,9 @@ public class ShowData extends Show {
 	public String updateShow() {
 		DataAccess.updateShow(getShow_id(),getType(), getTitle(), getDirector(), getCast(), getCountry(), getReleaseYear(), getRating(), getDuration(), getListedIn(), getDesc());
 		
-		return "viewAll";//şimdilik buraya geri döndürüyorum
+		return "index";//şimdilik buraya geri döndürüyorum
 	}
+	
 	
 	public String showPage(int id) {
 		Show s=DataAccess.findShow(id);
@@ -60,7 +62,6 @@ public class ShowData extends Show {
 		this.setCast(s.getCast());
 		return "show-page";
 	}
-	
 	public String getMessage() {
 		return message;
 	}

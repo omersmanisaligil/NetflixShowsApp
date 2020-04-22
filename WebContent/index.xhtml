@@ -95,7 +95,7 @@
          	<h:outputText value="#{show.duration}" />        
          	<h:outputText value="#{show.listedIn}" />        
          	<h:outputText value="#{show.desc}" />     
-         	<h:commandLink value="Edit" action="#{showData.editShow(show.show_id)}"/>
+         	<h:commandLink value="Edit" rendered="#{isAdmin}" action="#{showData.editShow(show.show_id)}"/>
          	<h:commandLink value="See More..." action="#{showData.showPage(show.show_id)}"/>
 			</h:panelGrid></p:column>
 			<!--<p:column headerText="Type"><h:outputText value="#{show.type}" /></p:column>        
