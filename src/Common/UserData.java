@@ -1,6 +1,7 @@
 package Common;
 
 import java.io.Serializable;
+import java.util.Map;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -74,11 +75,11 @@ public class UserData extends User implements Serializable{
 			return "login";
 		}
 	}
-	public String addFav(int show_id) {
-		DataAccess.addFavorite(getUserId(), show_id);
-		
+	/*public String addFav(String show_id) {
+		DataAccess.addFavorite(getUserId(), Integer.parseInt(show_id));
+		System.out.println(show_id);
 		return "index";
-	}
+	}*/
 
 	public String logout() {
 		HttpSession session = SessionUtils.getSession();

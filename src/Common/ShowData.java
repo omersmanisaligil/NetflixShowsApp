@@ -2,6 +2,7 @@ package Common;
 
 import java.util.List;
 
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
@@ -11,6 +12,7 @@ import Models.Show;
 import NFAdminPages.DataAccess;
 
 @ManagedBean
+@ApplicationScoped
 public class ShowData extends Show {
 	private String message;
 	public String addShow() throws ClassNotFoundException {
@@ -65,6 +67,13 @@ public class ShowData extends Show {
 	public String getMessage() {
 		return message;
 	}
+	public String addFav() {
+		System.out.println(getTitle()); //initializelanmıyor
+		DataAccess.addFavorite(SessionUtils.getUserId(),getShow_id());
+		System.out.println(getShow_id());
+		return "index";
+	}
+
 	public void setMessage(String message) {
 		this.message = message;
 	}	
