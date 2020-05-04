@@ -2,18 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
 	<link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro-all.min.css" />
 	<link  rel="stylesheet" type="text/css" href="css/style3.css"/>
 	<title>My Profile</title>
 </h:head>
  <body>
- 
- 
- 	
  	<div class="container-fluid main">
-  		<div class="card profile" style="background-image: url('resources/images/background-2.png'); background-size: cover">
+  		<div class="card profile">
 		    <div class="card-header profileName">
 		     <h:outputText value="#{userData.username}"></h:outputText>     
 		      
@@ -27,29 +25,25 @@
 		    </div>		     
 		 </div>
 		 
-		     <div class="wrapper">
-        <ui class="mainMenu">
+	<div class="wrapper">
+        <ul class="mainMenu">
             <li class="item" id="account">
                 <a href="#account" class="btn"><i class="fas fa-user-circle"></i>Favorite Shows</a>
                 <div class="subMenu">
-                    <a href="show-page.jsf">Dexter</a>
-                    <a href="">Kuzey Güney</a>
-                    <a href="">Ezel</a>
+                  <ul>
+                   	<ui:repeat var="f" value="#{userData.favs}">
+                   		<li><h:outputText value="#{f.title}"></h:outputText></li>
+                   	</ui:repeat>
+                  </ul> 
                 </div>
             </li>          
             
             <li class="item">
                 <a href="index.jsf" class="btn"><i class="fas fa-sign-out-alt"></i>Homepage</a>
             </li>
-        </ui>
+        </ul>
     </div>
     
     </div>
- 
- 
- 
- 
- 
- 
- </body>
+x	 </body>
  </html>

@@ -12,7 +12,8 @@ import Models.User;
 
 public class DataAccess {
 	
-	//bu metoddan connection döndürdüğümüz zaman "closed connection" hatası aldığımız için artık kullanmıyoruz
+	/*bu metoddan connection döndürdüğümüz zaman "closed connection" hatası aldığımız için artık kullanmıyoruz
+	garip bir şekilde her methodun başına tek tek connection açarak çözebildim.*/
 	private static Connection getConnection() {
 		System.out.println("Loading driver...");
 		
@@ -135,7 +136,8 @@ public class DataAccess {
 				PreparedStatement preparedStatement=conn.prepareStatement(sql);
 				
 				preparedStatement.setString(1,key); 
-				rs=preparedStatement.executeQuery();}
+				rs=preparedStatement.executeQuery();
+			}
 			
 			
 			
@@ -340,6 +342,30 @@ public class DataAccess {
 			return false;
 		}
 		return false;
+	}
+	public static List<Show> getFavorites(int user_id) {
+		List<Show> userFavs=new ArrayList<Show>();
+		try {
+			Class.forName(DbSettings.driver);
+			Connection conn=DriverManager.getConnection(DbSettings.url,DbSettings.username,DbSettings.password);
+			String query="SELECT * FROM tblShows WHERE show_id in (SELECT show_id FROM tblFavorites WHERE user_id=?)";
+			PreparedStatement statement=conn.prepareStatement(query);
+			
+			statement.setInt(1, user_id);
+			
+			ResultSet rs=statement.executeQuery();
+			
+			while(rs.next()) {
+				userFavs.add(new Show(rs.getInt("show_id"),rs.getString("type"),rs.getString("title"),rs.getString("director"),rs.getString("cast"),
+						rs.getString("country"),rs.getInt("release_year"),rs.getString("rating"),rs.getString("duration"),
+						rs.getString("listed_in"),rs.getString("description")));
+			}
+			conn.close();
+			return userFavs;
+		}catch(SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+			return null;
+		}	
 	}
 	
 	public static void main(String[] args) throws ClassNotFoundException {

@@ -19,10 +19,8 @@
     
     <a href="#"><h:graphicImage value="placeholder.jpg" 
     alt="cover" class="cover" /></a>
-    <h:commandButton value="Add to favorites" action='#{showData.addFav}'>
-    </h:commandButton>
     <div class="hero" style="background-image: url('resources/images/shows-background.jpg'); background-size: cover">
-            
+             
       <div class="details">
       
  		<div class="title1">  <!-- Title and rating -->
@@ -36,7 +34,8 @@
     
     <div class="description">
       
-     <!-- listed in --> <div class="column1"> <!-- şimdilik böyle, commlink list yapılacak -->
+     <div class="column1"><!-- listed-in --> 
+        <h:commandButton value="Add to favorites" rendered="#{!userData.loggedIn}" action='#{showData.addFav}'/><br/>
         <h:outputText value="#{showData.listedIn}"/>
       </div> <!-- end column1 -->
       

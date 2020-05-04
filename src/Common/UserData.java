@@ -1,6 +1,7 @@
 package Common;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
 
 import javax.faces.application.FacesMessage;
@@ -10,7 +11,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
-
+import Models.Show;
 import Models.User;
 import NFAdminPages.DataAccess;
 
@@ -74,6 +75,9 @@ public class UserData extends User implements Serializable{
 							"Please enter correct username and Password"));
 			return "login";
 		}
+	}
+	public List<Show> getFavs(){
+		return DataAccess.getFavorites(getUserId());
 	}
 	/*public String addFav(String show_id) {
 		DataAccess.addFavorite(getUserId(), Integer.parseInt(show_id));

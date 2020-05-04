@@ -115,6 +115,7 @@ a:hover {
 }
 
 .column1 {
+  position:absolute;
   padding-left: 50px;
   padding-top: 120px;
   width: 220px;
