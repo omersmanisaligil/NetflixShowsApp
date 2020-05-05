@@ -34,9 +34,8 @@
     
     <div class="description">
       
-     <div class="column1"><!-- listed-in --> 
-        <h:commandButton value="Add to favorites" rendered="#{!userData.loggedIn}" action='#{showData.addFav}'/><br/>
-        <h:outputText value="#{showData.listedIn}"/>
+     <div class="column1"><!-- listed-in -->         
+       
       </div> <!-- end column1 -->
       
       <div class="column2"> <!-- show description -->
@@ -49,13 +48,17 @@
 	    	<h:outputText value="#{showData.director}"/>
 	 		<p><strong>Duration:</strong></p>	
 	    	<h:outputText value="#{showData.duration}"/>
+	    	<p><strong>Categories: </strong></p>
+	    	<h:outputText value="#{showData.listedIn}"/>
  		</h:panelGrid>
       </div> <!-- end column2 -->
     </div> <!-- end description -->
     
-    
+   
     
     <div class="links">
+   	 <h:commandButton class="submitbtn" value="Add to favorites" rendered="#{!userData.loggedIn}" action='#{showData.addFav}'/>
+   	 <p/>
    	 <a href="index.jsf">Homepage</a>
    	 <p/>
    	 <a href="user-profile.jsf">My Profile</a>
