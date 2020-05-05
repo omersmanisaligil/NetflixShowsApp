@@ -27,11 +27,11 @@ a:hover {
 .container {
   margin: 0 auto;
   width: 780px;
-  height: 680px;
+  height: 740px;
   background: #202135;
   border-radius: 5px;
   position: relative;
-
+  
 }
 
 .hero {
@@ -100,7 +100,7 @@ a:hover {
   font-size: 23px;
   font-weight: 300;
   margin-bottom: 15px;
-  padding-left: 150px;
+  padding-left: 50px;
   text-align: center;
   padding-right: 50px;
 }
@@ -116,12 +116,14 @@ a:hover {
 
 .column1 {
   position:absolute;
-  padding-left: 50px;
+  padding-left: 150px;
   padding-top: 120px;
   width: 220px;
   float: left;
   text-align: center;
 }
+
+
 
 .tag {
   background: #313131;
@@ -140,7 +142,7 @@ a:hover {
 
 .column2 {
   padding-left: 41px;
-  padding-top: 10px;
+  padding-top: 50px;
   margin-left: 20px;
   width: 480px;
   float: left;
@@ -267,6 +269,7 @@ a[data-tooltip][data-placement="top"]::after {
 }
 
 .links{
+	
 	text-align: center;	
 	font-size: 16px; 
 	text-decoration: underline;
@@ -276,4 +279,9 @@ a[data-tooltip][data-placement="top"]::after {
 
 a{
 	color: #D27581;
+}
+
+.links .submitbtn:hover{
+  background-color: #D27581;
+	
 }
