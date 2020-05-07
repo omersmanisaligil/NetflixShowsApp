@@ -25,7 +25,6 @@
   box-shadow: 0 37.125px 70px -12.125px rgba(0,0,0,0.2);
   transition:all .3s;
 }
-
 .profileName {
   background:transparent;
   border:0;
@@ -122,6 +121,7 @@ body{
     overflow: hidden;
     transition: max-height 0.7s;
     max-height: 0;
+    color:#ffffff;
 }
 .subMenu a{
     display: block;

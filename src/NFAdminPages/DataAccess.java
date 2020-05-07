@@ -205,7 +205,8 @@ public class DataAccess {
 			
 			ResultSet rs=statement.executeQuery();
 			rs.next();
-			result=new Show(rs.getInt("show_id"),rs.getString("type"), rs.getString("title"),rs.getString("director"),rs.getString("cast"),rs.getString("country"),rs.getInt("release_year"),
+			result=new Show(rs.getInt("show_id"),rs.getString("type"), rs.getString("title"),rs.getString("director"),rs.getString("cast"),rs.getString("country"),
+					rs.getInt("release_year"),
 					rs.getString("rating"),rs.getString("duration"),rs.getString("listed_in"),rs.getString("description"));
 			
 			conn.close();

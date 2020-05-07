@@ -1,11 +1,14 @@
 package Common;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 
 import Common.UserData;
 import Models.Show;
@@ -76,5 +79,9 @@ public class ShowData extends Show {
 
 	public void setMessage(String message) {
 		this.message = message;
-	}	
+	}
+	public void NFPage() throws IOException{
+		 ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+		    externalContext.redirect("https://www.netflix.com/title/"+getShow_id());
+	}
 }
